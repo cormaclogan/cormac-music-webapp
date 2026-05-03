@@ -1,7 +1,4 @@
 const Database = require('better-sqlite3');
-
-const db = new Database('./data/app.db');
-module.exports = db;
 const fs = require('fs');
 const path = require('path');
 
@@ -10,25 +7,18 @@ console.log("DB FILE IS RUNNING");
 // database path
 const dbPath = path.join(__dirname, 'data', 'app.db');
 
-// connect to database
-const db = new sqlite3.Database(dbPath, (err) => {
-    if (err) {
-        console.error("Error connecting to DB:", err.message);
-    } else {
-        console.log("Connected to SQLite database");
-    }
-});
+// connect (better-sqlite3)
+const db = new Database(dbPath);
 
 // read model.sql
-const sql = fs.readFileSync(path.join(__dirname, 'model.sql')).toString();
+const sql = fs.readFileSync(path.join(__dirname, 'model.sql'), 'utf8');
 
-// execute SQL
-db.exec(sql, (err) => {
-    if (err) {
-        console.error("Error running SQL:", err.message);
-    } else {
-        console.log("Tables created successfully");
-    }
-});
+// run SQL (synchronous)
+try {
+    db.exec(sql);
+    console.log("Tables created successfully");
+} catch (err) {
+    console.error("Error running SQL:", err.message);
+}
 
 module.exports = db;
