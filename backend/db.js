@@ -11,6 +11,14 @@ if (!fs.existsSync(dbDir)) {
 
 const dbPath = path.join(dbDir, 'app.db');
 
-const db = new Database(dbPath);
+// 🔥 SAFE INIT
+let db;
+try {
+    db = new Database(dbPath);
+    console.log("Database connected");
+} catch (err) {
+    console.error("DB ERROR:", err);
+    process.exit(1); // force crash with visible error
+}
 
 module.exports = db;
