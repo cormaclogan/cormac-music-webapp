@@ -1,14 +1,16 @@
-const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const fs = require('fs');
+const Database = require('better-sqlite3');
 
-const dbPath = path.join(__dirname, 'data', 'app.db');
+const dbDir = path.join(__dirname, 'data');
 
-const db = new sqlite3.Database(dbPath, (err) => {
-    if (err) {
-        console.error(err.message);
-    } else {
-        console.log("Connected to database");
-    }
-});
+// create folder if it doesn't exist
+if (!fs.existsSync(dbDir)) {
+    fs.mkdirSync(dbDir);
+}
+
+const dbPath = path.join(dbDir, 'app.db');
+
+const db = new Database(dbPath);
 
 module.exports = db;
