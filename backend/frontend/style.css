@@ -152,6 +152,7 @@ footer {
 .ads-track {
     display: flex;
     flex-direction: column;
+    min-height: 200%;   /* 🔥 ADD THIS */
 }
 
 .ads img {
