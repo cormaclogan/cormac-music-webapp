@@ -98,7 +98,7 @@
     <a href="artists.html">Artists</a>
     <a href="albums.html">Albums</a>
     <a href="songs.html">Songs</a>
-    <button class="spam-btn right-spam">DOWNLOAD A BABY</button>
+    <button id="babyBtn" class="spam-btn right-spam">DOWNLOAD A BABY</button>
 </nav>
 
 <div class="counter">
@@ -202,18 +202,20 @@ Webpage
 <audio id="hoverSound" src="/hover.mp3"></audio>
 <div id="videoPopup3">
     <span id="closePopup3">×</span>
-    <video id="popupVideo3" loop muted>
+    <video id="popupVideo3" loop>
         <source src="/video3.mp4" type="video/mp4">
     </video>
 </div>
 
 <script>
+   const bgMusic = document.getElementById("bgMusic");
 // 🔥 AUDIO (LOUDER NOW)
 document.body.addEventListener("click", () => {
-    const music = document.getElementById("bgMusic");
-    music.muted = false;
-    music.volume = 0.7; // 🔊 CHANGED HERE
-    music.play();
+    if (!bgMusic) return;
+
+    bgMusic.muted = false;
+    bgMusic.volume = 0.7;
+    bgMusic.play();
 });
 
 // IMAGE ROTATION
@@ -287,10 +289,11 @@ setInterval(() => {
 }, 5000);
 
 // VIDEO POPUP
+const babyBtn = document.getElementById("babyBtn");
 const popup = document.getElementById("videoPopup");
 const closeBtn = document.getElementById("closePopup");
 const video = document.getElementById("popupVideo");
-const bgMusic = document.getElementById("bgMusic");
+
 
 function showAd() {
     popup.style.display = "block";
@@ -404,6 +407,42 @@ setInterval(() => {
   if (y2 > 0) y2 = -1500;        // down reset (KEY FIX)
 
 }, 30);
+// =========================
+
+</script>
+<script>
+// 🎬 VIDEO POPUP 3 (BUTTON ONLY)
+const popup3 = document.getElementById("videoPopup3");
+const video3 = document.getElementById("popupVideo3");
+const closeBtn3 = document.getElementById("closePopup3");
+
+if (babyBtn) {
+    babyBtn.addEventListener("click", () => {
+        popup3.style.display = "block";
+
+        // 🔻 LOWER BACKGROUND MUSIC
+        if (bgMusic) bgMusic.volume = 0.05;
+
+        video3.currentTime = 0;
+        video3.muted = false;
+        video3.volume = 1.0; // make sure video is loud
+        video3.play().catch(()=>{});
+    });
+}
+if (closeBtn3) {
+    closeBtn3.onclick = () => {
+        popup3.style.display = "none";
+
+        video3.pause();
+        video3.currentTime = 0;
+
+        // 🔊 RESTORE BACKGROUND MUSIC
+        if (bgMusic) bgMusic.volume = 0.7;
+        
+    };
+}
+
+
 </script>
 
 </body>
