@@ -216,4 +216,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 20);
 
     }, 5000);
+    // 🎬 VIDEO POPUP 4 (FREE REAL ESTATE)
+const realEstateBtn = document.getElementById("realEstateBtn");
+const popup4 = document.getElementById("videoPopup4");
+const video4 = document.getElementById("popupVideo4");
+const closeBtn4 = document.getElementById("closePopup4");
+
+if (realEstateBtn) {
+    realEstateBtn.addEventListener("click", () => {
+        popup4.style.display = "block";
+
+        // 🔻 lower background music
+        if (music) music.volume = 0.05;
+
+        video4.currentTime = 0;
+        video4.muted = false;
+        video4.volume = 1.0;
+        video4.load();
+        video4.play().catch(()=>{});
+    });
+}
+
+if (closeBtn4) {
+    closeBtn4.onclick = () => {
+        popup4.style.display = "none";
+
+        video4.pause();
+        video4.currentTime = 0;
+
+        // 🔊 restore music
+        if (music) music.volume = 0.3;
+    };
+}
 });
