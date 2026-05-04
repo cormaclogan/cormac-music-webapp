@@ -463,6 +463,37 @@ if (startBtn && music) {
     });
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+const realEstateBtn = document.getElementById("realEstateBtn");
+const popup4 = document.getElementById("videoPopup4");
+const video4 = document.getElementById("popupVideo4");
+const closeBtn4 = document.getElementById("closePopup4");
+
+if (realEstateBtn) {
+    realEstateBtn.addEventListener("click", () => {
+        popup4.style.display = "block";
+
+        video4.currentTime = 0;
+        video4.muted = false;
+
+        video4.play().catch(err => {
+            console.log("VIDEO4 ERROR:", err);
+        });
+    });
+}
+
+if (closeBtn4) {
+    closeBtn4.onclick = () => {
+        popup4.style.display = "none";
+        video4.pause();
+        video4.currentTime = 0;
+    };
+}
+
+});
+</script>
 
 </body>
 </html>
