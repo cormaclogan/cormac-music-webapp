@@ -413,6 +413,7 @@ setInterval(() => {
 <script>
 // 🎬 VIDEO POPUP 3 (BUTTON ONLY)
 const popup3 = document.getElementById("videoPopup3");
+const bgMusic3 = document.getElementById("bgMusic");
 const video3 = document.getElementById("popupVideo3");
 const closeBtn3 = document.getElementById("closePopup3");
 
@@ -421,7 +422,7 @@ if (babyBtn) {
         popup3.style.display = "block";
 
         // 🔻 LOWER BACKGROUND MUSIC
-        if (bgMusic) bgMusic.volume = 0.05;
+        bgMusic3.volume = 0.05;
 
         video3.currentTime = 0;
         video3.muted = false;
@@ -437,7 +438,7 @@ if (closeBtn3) {
         video3.currentTime = 0;
 
         // 🔊 RESTORE BACKGROUND MUSIC
-        if (bgMusic) bgMusic.volume = 0.7;
+        bgMusic3.volume = 0.7;
         
     };
 }
