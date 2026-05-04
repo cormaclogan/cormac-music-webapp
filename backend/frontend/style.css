@@ -753,52 +753,22 @@ h1 {
     top: 0;
     width: 100%;
 
-    animation: scrollAds 12s linear infinite;
+    animation: scrollAds 6s linear infinite;
+
+    gap: 20px;            /* 🔥 ADD THIS */
 }
 
 .ads-track img {
     width: 100%;
-    display: block;
-    margin: 0;
+    height: 260px;        /* 🔥 FORCE HEIGHT */
+    object-fit: cover;
 }
 
 @keyframes scrollAds {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
-}
-/* ===== HARD OVERRIDE ADS SYSTEM ===== */
-
-.ads {
-    position: fixed !important;
-    top: 0 !important;
-    width: 200px !important;
-    height: 100vh !important;
-    overflow: hidden !important;
-    z-index: 999999 !important;
-    background: black !important;
-}
-
-.left-ads { left: 0 !important; }
-.right-ads { right: 0 !important; }
-
-.ads-track {
-    position: absolute !important;
-    top: 0 !important;
-    width: 100% !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-
-    animation: scrollAds 8s linear infinite !important;
-}
-
-.ads-track img {
-    width: 100% !important;
-    display: block !important;
-    margin: 0 !important;
-}
-
-@keyframes scrollAds {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
 }
