@@ -230,10 +230,15 @@ if (realEstateBtn) {
         if (music) music.volume = 0.05;
 
         video4.currentTime = 0;
-        video4.muted = false;
-        video4.volume = 1.0;
-        video4.load();
-        video4.play().catch(()=>{});
+
+// 🔥 allow autoplay
+video4.muted = true;
+
+video4.play().then(() => {
+    video4.muted = false; // unmute after it starts
+}).catch(err => {
+    console.log("VIDEO4 ERROR:", err);
+});
     });
 }
 
