@@ -376,19 +376,25 @@ if (closeBtn2) {
 
 
 <script>
-let y1 = 0;
-let y2 = 0;
+let y1 = 0;     // left
+let y2 = 0;     // right
 
 setInterval(() => {
-  y1 -= 1.5; // speed
-  y2 -= 2;   // different speed for chaos 😈
+  // LEFT SIDE → moves UP
+  y1 -= 1.5;
 
-  document.getElementById("leftTrack").style.transform = `translateY(${y1}px)`;
-  document.getElementById("rightTrack").style.transform = `translateY(${y2}px)`;
+  // RIGHT SIDE → moves DOWN
+  y2 += 1.5;
 
-  // reset loop (adjust depending on total height)
-  if (y1 < -1500) y1 = 0;
-  if (y2 < -1500) y2 = 0;
+  document.getElementById("leftTrack").style.transform =
+    `translateY(${y1}px)`;
+
+  document.getElementById("rightTrack").style.transform =
+    `translateY(${y2}px)`;
+
+  // 🔁 RESET LOOP (tweak number if needed)
+  if (y1 < -1100) y1 = 0;
+  if (y2 > 1100) y2 = 0;
 
 }, 30);
 </script>
