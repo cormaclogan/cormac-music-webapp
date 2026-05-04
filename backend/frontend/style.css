@@ -710,7 +710,14 @@ h1 {
     word-spacing: 10px;   /* 👈 spreads words apart */
     letter-spacing: 2px;
 }
-/* ===== WORKING SIDE ADS (FINAL) ===== */
+
+
+
+
+
+
+
+/* ===== FINAL WORKING ADS ===== */
 
 .ads {
     position: fixed;
@@ -727,23 +734,33 @@ h1 {
 .ads-track {
     display: flex;
     flex-direction: column;
-
     position: absolute;
     top: 0;
     width: 100%;
 
-    animation: scrollAds 8s linear infinite;
+    animation: scrollAds 12s linear infinite;
+    will-change: transform;
 }
 
+/* consistent image size */
 .ads-track img {
     width: 100%;
-    height: 260px;   /* force size */
+    height: 250px;
     object-fit: cover;
     display: block;
 }
 
-/* 🔥 THIS IS THE KEY CHANGE */
+/* 🔥 ONE SINGLE KEYFRAME ONLY */
 @keyframes scrollAds {
-    0%   { transform: translateY(0); }
-    100% { transform: translateY(-1000px); }  /* FORCE BIG MOVEMENT */
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
 }
+
+
+
+
+
