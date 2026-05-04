@@ -66,7 +66,7 @@ async function createArtist() {
 
         if (!res.ok) throw new Error(await res.text());
 
-        alert("✅ Artist added");
+        alert("Artist added");
 
         document.getElementById("artistName").value = "";
         document.getElementById("genre").value = "";
@@ -94,7 +94,7 @@ async function deleteArtist(id) {
         loadArtists();
 
     } catch (err) {
-        console.error("❌ Error deleting artist:", err);
+        console.error("Error deleting artist:", err);
     }
 }
 
@@ -127,7 +127,7 @@ async function updateArtist(id, artist_name, genre, monthly_listeners) {
 
         if (!res.ok) throw new Error("Update failed");
 
-        alert("✏️ Artist updated");
+        alert("Artist updated");
         loadArtists();
 
     } catch (err) {
