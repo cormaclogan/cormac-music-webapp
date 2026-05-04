@@ -749,3 +749,19 @@ h1 {
     word-spacing: 10px;   /* 👈 spreads words apart */
     letter-spacing: 2px;
 }
+.ads {
+    background: red !important;
+    width: 200px !important;
+    height: 100vh !important;
+    z-index: 999999 !important;
+}
+
+.ads-track {
+    background: yellow !important;
+}
+
+.ads img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+}
