@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/artists"; // 🔥 force correct backend
+const API_URL = window.location.origin + "/artists"; // 🔥 works locally + Railway
 
 // =========================
 // LOAD ALL ARTISTS
@@ -7,7 +7,6 @@ async function loadArtists() {
     try {
         const res = await fetch(API_URL);
 
-        // 🔥 HANDLE SERVER ERRORS PROPERLY
         if (!res.ok) {
             const text = await res.text();
             throw new Error("Server error: " + text);
@@ -61,20 +60,11 @@ async function createArtist() {
     try {
         const res = await fetch(API_URL, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                artist_name,
-                genre,
-                monthly_listeners
-            })
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ artist_name, genre, monthly_listeners })
         });
 
-        if (!res.ok) {
-            const text = await res.text();
-            throw new Error(text);
-        }
+        if (!res.ok) throw new Error(await res.text());
 
         alert("✅ Artist added");
 
@@ -97,13 +87,9 @@ async function deleteArtist(id) {
     if (!confirm("Delete this artist?")) return;
 
     try {
-        const res = await fetch(`${API_URL}/${id}`, {
-            method: "DELETE"
-        });
+        const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
 
-        if (!res.ok) {
-            throw new Error("Delete failed");
-        }
+        if (!res.ok) throw new Error("Delete failed");
 
         loadArtists();
 
@@ -135,22 +121,13 @@ async function updateArtist(id, artist_name, genre, monthly_listeners) {
     try {
         const res = await fetch(`${API_URL}/${id}`, {
             method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                artist_name,
-                genre,
-                monthly_listeners
-            })
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ artist_name, genre, monthly_listeners })
         });
 
-        if (!res.ok) {
-            throw new Error("Update failed");
-        }
+        if (!res.ok) throw new Error("Update failed");
 
         alert("✏️ Artist updated");
-
         loadArtists();
 
     } catch (err) {
