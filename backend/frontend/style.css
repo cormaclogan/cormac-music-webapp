@@ -168,21 +168,16 @@ footer {
 }
 
 .left-ads .ads-track {
-    animation: scrollUp 18s linear infinite;
+    animation: scrollUp 12s linear infinite;
 }
 
 .right-ads .ads-track {
-    animation: scrollDown 18s linear infinite;
+    animation: scrollUp 12s linear infinite;
 }
 
 @keyframes scrollUp {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
-}
-
-@keyframes scrollDown {
-    0% { transform: translateY(-50%); }
-    100% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
 }
 
 .ads img:hover {
@@ -760,13 +755,4 @@ nav a[href="claimreward.html"] {
 h1 {
     word-spacing: 10px;   /* 👈 spreads words apart */
     letter-spacing: 2px;
-}
-.ads-track {
-    display: flex;
-    flex-direction: column;
-
-    position: absolute;   /* 🔥 ADD */
-    top: 0;               /* 🔥 ADD */
-    left: 0;              /* 🔥 ADD */
-    width: 100%;          /* 🔥 ADD */
 }
