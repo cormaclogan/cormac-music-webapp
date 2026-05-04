@@ -220,36 +220,39 @@ document.addEventListener("DOMContentLoaded", () => {
 // 🎬 VIDEO POPUP 3 (BOTTOM RIGHT)
 // =========================
 // =========================
-// 🎬 VIDEO POPUP 3 TIMING
+// 🎬 VIDEO POPUP 3 TIMING (SAFE LOAD)
 // =========================
-function showPopup3() {
-    const popup3 = document.getElementById("videoPopup3");
-    const video3 = document.getElementById("popupVideo3");
+window.addEventListener("load", () => {
 
-    if (popup3 && video3) {
-        popup3.style.display = "block";
-
-        video3.currentTime = 0;
-        video3.play().catch(()=>{});
-    }
-}
-
-// FIRST SHOW → 6 seconds
-setTimeout(showPopup3, 6000);
-
-// REPEAT → every 45 seconds
-setInterval(showPopup3, 45000);
-
-// CLOSE BUTTON
-const closeBtn3 = document.getElementById("closePopup3");
-
-if (closeBtn3) {
-    closeBtn3.onclick = () => {
+    function showPopup3() {
         const popup3 = document.getElementById("videoPopup3");
         const video3 = document.getElementById("popupVideo3");
 
-        if (popup3) popup3.style.display = "none";
-        if (video3) video3.pause();
-    };
-}
+        if (popup3 && video3) {
+            popup3.style.display = "block";
+            video3.currentTime = 0;
+            video3.play().catch(()=>{});
+        }
+    }
+
+    // FIRST SHOW → 6 seconds
+    setTimeout(showPopup3, 6000);
+
+    // REPEAT → every 45 seconds
+    setInterval(showPopup3, 45000);
+
+    // CLOSE BUTTON
+    const closeBtn3 = document.getElementById("closePopup3");
+
+    if (closeBtn3) {
+        closeBtn3.onclick = () => {
+            const popup3 = document.getElementById("videoPopup3");
+            const video3 = document.getElementById("popupVideo3");
+
+            if (popup3) popup3.style.display = "none";
+            if (video3) video3.pause();
+        };
+    }
+
+});
 });
