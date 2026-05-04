@@ -376,14 +376,15 @@ if (closeBtn2) {
 
 
 <script>
-let y1 = 0;     // left
-let y2 = 0;     // right
+let y1 = 0;        // left (up)
+let y2 = -1500;    // right (start ABOVE so it can scroll down)
 
 setInterval(() => {
-  // LEFT SIDE → moves UP
+
+  // LEFT → UP
   y1 -= 1.5;
 
-  // RIGHT SIDE → moves DOWN
+  // RIGHT → DOWN
   y2 += 1.5;
 
   document.getElementById("leftTrack").style.transform =
@@ -392,13 +393,12 @@ setInterval(() => {
   document.getElementById("rightTrack").style.transform =
     `translateY(${y2}px)`;
 
-  // 🔁 RESET LOOP (tweak number if needed)
-  if (y1 < -1100) y1 = 0;
-  if (y2 > 1100) y2 = 0;
+  // 🔁 LOOP FIXES
+  if (y1 < -1500) y1 = 0;        // up reset
+  if (y2 > 0) y2 = -1500;        // down reset (KEY FIX)
 
 }, 30);
 </script>
-
 
 </body>
 </html>
