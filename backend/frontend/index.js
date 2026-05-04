@@ -217,28 +217,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }, 5000);
     // 🎬 VIDEO POPUP 4 (FREE REAL ESTATE)
-const realEstateBtn = document.getElementById("realEstateBtn");
+    const realEstateBtn = document.getElementById("realEstateBtn");
 const popup4 = document.getElementById("videoPopup4");
 const video4 = document.getElementById("popupVideo4");
 const closeBtn4 = document.getElementById("closePopup4");
+const bgMusic4 = document.getElementById("bgMusic"); // 👈 NEW
 
 if (realEstateBtn) {
     realEstateBtn.addEventListener("click", () => {
         popup4.style.display = "block";
 
-        // 🔻 lower background music
-        if (music) music.volume = 0.05;
+        // 🔻 LOWER MUSIC (same as video3)
+        if (bgMusic4) bgMusic4.volume = 0.05;
 
         video4.currentTime = 0;
+        video4.muted = true;
 
-// 🔥 allow autoplay
-video4.muted = true;
-
-video4.play().then(() => {
-    video4.muted = false; // unmute after it starts
-}).catch(err => {
-    console.log("VIDEO4 ERROR:", err);
-});
+        video4.play().then(() => {
+            video4.muted = false;
+        });
     });
 }
 
@@ -249,8 +246,9 @@ if (closeBtn4) {
         video4.pause();
         video4.currentTime = 0;
 
-        // 🔊 restore music
-        if (music) music.volume = 0.3;
+        // 🔊 RESTORE MUSIC
+        if (bgMusic4) bgMusic4.volume = 0.15;
     };
 }
+
 });
