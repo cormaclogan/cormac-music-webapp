@@ -152,7 +152,7 @@
         <img src="/ads/ad6.png">
     </div>
 </div>
-<audio id="bgMusic" autoplay loop muted>
+<audio id="bgMusic" loop muted>
     <source src="/music.mp3" type="audio/mpeg">
 </audio>
 
@@ -209,14 +209,7 @@ Webpage
 
 <script>
    const bgMusic = document.getElementById("bgMusic");
-// 🔥 AUDIO (LOUDER NOW)
-document.body.addEventListener("click", () => {
-    if (!bgMusic) return;
 
-    bgMusic.muted = false;
-    bgMusic.volume = 0.7;
-    bgMusic.play();
-});
 
 // IMAGE ROTATION
 const images = [

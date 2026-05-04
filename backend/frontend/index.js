@@ -29,23 +29,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         startBtn.addEventListener("click", () => {
-            if (music) {
-                music.muted = false;
-                music.volume = 0.3;
-                music.play();
-            }
+    if (!music) return;
 
-            if (hoverSound) {
-                hoverSound.currentTime = 0;
-                hoverSound.play().catch(()=>{});
-            }
+    // 🔁 toggle play / pause
+    if (music.paused) {
+        music.muted = false;
+        music.volume = 0.3;
+        music.play().catch(()=>{});
+    } else {
+        music.pause();
+    }
 
-            startBtn.classList.add("clicked");
-
-            setTimeout(() => {
-                startBtn.style.display = "none";
-            }, 500);
-        });
+    // 🔊 optional sound
+    if (hoverSound) {
+        hoverSound.currentTime = 0;
+        hoverSound.play().catch(()=>{});
+    }
+});
     }
 
     // =========================
