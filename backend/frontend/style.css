@@ -717,49 +717,15 @@ h1 {
 
 
 
-/* ===== FINAL WORKING ADS ===== */
 
-.ads {
-    position: fixed;
-    top: 0;
-    width: 220px;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 999;
-}
 
-.left-ads { left: 0; }
-.right-ads { right: 0; }
-
-.ads-track {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    animation: scrollAds 12s linear infinite;
-    will-change: transform;
-}
-
-/* consistent image size */
-.ads-track img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+/* 🔥 SIDE AD IMAGES */
+#leftTrack img,
+#rightTrack img {
     display: block;
+    width: 100%;
+    margin-bottom: 20px; /* 👈 transparent gap */
 }
-
-/* 🔥 ONE SINGLE KEYFRAME ONLY */
-@keyframes scrollAds {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-50%);
-    }
-}
-
 
 
 

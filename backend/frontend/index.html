@@ -43,6 +43,48 @@
 
 
 
+    <!-- 🔥 LEFT SIDE ADS -->
+<div style="position:fixed; left:0; top:0; width:200px; height:100vh; overflow:hidden; z-index:1; pointer-events:none;">
+  <div id="leftTrack">
+    <img src="/ads/ad1.png">
+    <img src="/ads/ad2.png">
+    <img src="/ads/ad3.png">
+    <img src="/ads/ad4.png">
+    <img src="/ads/ad5.png">
+    <img src="/ads/ad6.png">
+
+    <!-- duplicate for loop -->
+    <img src="/ads/ad1.png">
+    <img src="/ads/ad2.png">
+    <img src="/ads/ad3.png">
+    <img src="/ads/ad4.png">
+    <img src="/ads/ad5.png">
+    <img src="/ads/ad6.png">
+  </div>
+</div>
+
+<!-- 🔥 RIGHT SIDE ADS -->
+<div style="position:fixed; right:0; top:0; width:200px; height:100vh; overflow:hidden; z-index:1; pointer-events:none;">
+  <div id="rightTrack">
+    <img src="/ads/ad1.png">
+    <img src="/ads/ad2.png">
+    <img src="/ads/ad3.png">
+    <img src="/ads/ad4.png">
+    <img src="/ads/ad5.png">
+    <img src="/ads/ad6.png">
+
+    <!-- duplicate for loop -->
+    <img src="/ads/ad1.png">
+    <img src="/ads/ad2.png">
+    <img src="/ads/ad3.png">
+    <img src="/ads/ad4.png">
+    <img src="/ads/ad5.png">
+    <img src="/ads/ad6.png">
+  </div>
+</div>
+
+
+
 
 
 
@@ -328,6 +370,27 @@ if (closeBtn2) {
         closeAttempt = 0;
     };
 }
+</script>
+
+
+
+
+<script>
+let y1 = 0;
+let y2 = 0;
+
+setInterval(() => {
+  y1 -= 1.5; // speed
+  y2 -= 2;   // different speed for chaos 😈
+
+  document.getElementById("leftTrack").style.transform = `translateY(${y1}px)`;
+  document.getElementById("rightTrack").style.transform = `translateY(${y2}px)`;
+
+  // reset loop (adjust depending on total height)
+  if (y1 < -1500) y1 = 0;
+  if (y2 < -1500) y2 = 0;
+
+}, 30);
 </script>
 
 
