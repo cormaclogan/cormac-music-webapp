@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/artists";
+const API_URL = "/artists";
 
 // =========================
 // LOAD ALL ARTISTS
