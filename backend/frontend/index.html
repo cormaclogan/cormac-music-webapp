@@ -438,6 +438,24 @@ if (closeBtn3) {
 
 
 </script>
+<script>
+const startBtn = document.getElementById("startAudioBtn");
+const music = document.getElementById("bgMusic");
+
+if (startBtn && music) {
+    startBtn.addEventListener("click", () => {
+
+        if (music.paused) {
+            music.muted = false;
+            music.volume = 0.3;
+            music.play().catch(()=>{});
+        } else {
+            music.pause();
+        }
+
+    });
+}
+</script>
 
 </body>
 </html>
