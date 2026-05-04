@@ -749,6 +749,7 @@ h1 {
     word-spacing: 10px;   /* 👈 spreads words apart */
     letter-spacing: 2px;
 }
+/*DELETE BELOW*/
 .ads {
     background: red !important;
     width: 200px !important;
