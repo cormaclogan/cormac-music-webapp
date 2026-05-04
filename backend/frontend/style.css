@@ -133,27 +133,6 @@ footer {
     font-size: 0.8rem;
 }
 
-/* ========================= */
-/* 🔥 BIG SIDE ADS 🔥 */
-/* ========================= */
-
-.ads {
-    position: fixed;
-    top: 0;
-    width: 220px;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 999;
-}
-
-.left-ads {
-    left: 0;
-}
-
-.right-ads {
-    right: 0;
-}
-
 
 
 
@@ -731,7 +710,7 @@ h1 {
     word-spacing: 10px;   /* 👈 spreads words apart */
     letter-spacing: 2px;
 }
-/* ===== FINAL WORKING ADS ===== */
+/* ===== WORKING SIDE ADS (FINAL) ===== */
 
 .ads {
     position: fixed;
@@ -752,20 +731,19 @@ h1 {
     position: absolute;
     top: 0;
     width: 100%;
-     min-height: 200%;
 
-    animation: scrollAds 6s linear infinite;
-
-    gap: 20px;            /* 🔥 ADD THIS */
+    animation: scrollAds 8s linear infinite;
 }
 
 .ads-track img {
     width: 100%;
-    height: 260px;        /* 🔥 FORCE HEIGHT */
+    height: 260px;   /* force size */
     object-fit: cover;
+    display: block;
 }
 
+/* 🔥 THIS IS THE KEY CHANGE */
 @keyframes scrollAds {
-    0% { transform: translateY(-50%); }
-    100% { transform: translateY(0); }
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-1000px); }  /* FORCE BIG MOVEMENT */
 }
