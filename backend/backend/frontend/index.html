@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/style.css">
+
+    <title>--Cormac's MUSIC Webpage--</title>
+
+    <style>
+        #videoPopup {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 300px;
+            background: black;
+            border: 4px solid red;
+            z-index: 99999;
+            display: none;
+        }
+
+        #videoPopup video {
+            width: 100%;
+        }
+
+        #closePopup {
+            position: absolute;
+            top: 0;
+            right: 5px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body> 
+
+
+
+    <!-- 🔥 LEFT SIDE ADS -->
+<div style="position:fixed; left:0; top:0; width:220px; height:100vh; overflow:hidden; z-index:1; pointer-events:none;">
+  <div id="leftTrack">
+    <img src="/ads/ad1.png">
+    <img src="/ads/ad2.png">
+    <img src="/ads/ad3.png">
+    <img src="/ads/ad4.png">
+    <img src="/ads/ad5.png">
+    <img src="/ads/ad6.png">
+
+    <!-- duplicate for loop -->
+    <img src="/ads/ad1.png">
+    <img src="/ads/ad2.png">
+    <img src="/ads/ad3.png">
+    <img src="/ads/ad4.png">
+    <img src="/ads/ad5.png">
+    <img src="/ads/ad6.png">
+  </div>
+</div>
+
+<!-- 🔥 RIGHT SIDE ADS -->
+<div style="position:fixed; right:0; top:0; width:220px; height:100vh; overflow:hidden; z-index:1; pointer-events:none;">
+  <div id="rightTrack">
+    <img src="/ads/ad1.png">
+    <img src="/ads/ad2.png">
+    <img src="/ads/ad3.png">
+    <img src="/ads/ad4.png">
+    <img src="/ads/ad5.png">
+    <img src="/ads/ad6.png">
+
+    <!-- duplicate for loop -->
+    <img src="/ads/ad1.png">
+    <img src="/ads/ad2.png">
+    <img src="/ads/ad3.png">
+    <img src="/ads/ad4.png">
+    <img src="/ads/ad5.png">
+    <img src="/ads/ad6.png">
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<nav>
+    <button class="spam-btn left-spam">FREE REAL ESTATE</button>
+    <a href="artists.html">Artists</a>
+    <a href="albums.html">Albums</a>
+    <a href="songs.html">Songs</a>
+    <button id="babyBtn" class="spam-btn right-spam">DOWNLOAD A BABY</button>
+</nav>
+
+<div class="counter">
+923,817 USERS JOINED TODAY!!!
+</div>
+
+<div class="alert-bar">
+⚠️ WARNING: 3 VIRUSES 検出されました ⚠️ CLICK 今すぐ クリック ⚠️ IMMEDIATE 対応 REQUIRED ⚠️
+</div>
+
+<div class="ticker">
+    <div class="ticker-text glitch" 
+         data-text="無料の音楽 今すぐクリック 期間限定 ウイルスなし 無料の音楽 今すぐクリック">
+        無料の音楽 今すぐクリック 期間限定 ウイルスなし 無料の音楽 今すぐクリック
+    </div>
+</div>
+<div class="ads left-ads">
+    <div class="ads-track">
+        <img src="/ads/ad1.png">
+        <img src="/ads/ad2.png">
+        <img src="/ads/ad3.png">
+        <img src="/ads/ad4.png">
+        <img src="/ads/ad5.png">
+        <img src="/ads/ad6.png">
+
+        <!-- duplicate -->
+        <img src="/ads/ad1.png">
+        <img src="/ads/ad2.png">
+        <img src="/ads/ad3.png">
+        <img src="/ads/ad4.png">
+        <img src="/ads/ad5.png">
+        <img src="/ads/ad6.png">
+    </div>
+</div>
+
+<div class="ads right-ads">
+    <div class="ads-track">
+        <img src="/ads/ad1.png">
+        <img src="/ads/ad2.png">
+        <img src="/ads/ad3.png">
+        <img src="/ads/ad4.png">
+        <img src="/ads/ad5.png">
+        <img src="/ads/ad6.png">
+
+        <!-- duplicate -->
+        <img src="/ads/ad1.png">
+        <img src="/ads/ad2.png">
+        <img src="/ads/ad3.png">
+        <img src="/ads/ad4.png">
+        <img src="/ads/ad5.png">
+        <img src="/ads/ad6.png">
+    </div>
+</div>
+<audio id="bgMusic" autoplay loop muted>
+    <source src="/music.mp3" type="audio/mpeg">
+</audio>
+
+<marquee scrollamount="20">
+🔥 CLICK HERE FOR FREE HUMANS 🔥 LIMITED TIME 🔥 FREE HUMANS! 🔥
+</marquee>
+
+<div class="container">
+    <section class="box">
+        <button id="startAudioBtn" class="audio-btn">
+CLICK FOR AUDIO (AND MONEY)
+</button>
+<h1>
+Cormac's 
+<span id="glitchWord">"MUSIC"</span> 
+Webpage
+</h1>
+
+        <p class="glitch-desc" data-text="Welcome to Cormac's MUSIC WEBSITE. This will allow to create, read, update and delete Artists, Albums and Songs!">
+         Welcome to Cormac's MUSIC WEBSITE. This will allow to create, read, update and delete Artists, Albums and Songs!
+        </p>
+
+        <div class="image-row">
+            <img id="img1" src="/images/image.png">
+            <img id="img2" src="/images/image2.png">
+            <img id="img3" src="/images/image3.png">
+        </div>
+    </section>
+</div>
+
+<div id="scanBox">🔍 Scanning your files...</div>
+
+<div id="videoPopup">
+    <span id="closePopup">&times;</span>
+    <video id="popupVideo" loop>
+        <source src="/your-video.mp4" type="video/mp4">
+    </video>
+</div>
+<div id="videoPopup2">
+    <video id="popupVideo2" loop>
+        <source src="/your-second-video.mp4" type="video/mp4">
+    </video>
+
+    <button id="closePopup2" onclick="closeSecondPopup()">×</button>
+</div>
+
+<audio id="hoverSound" src="/hover.mp3"></audio>
+<div id="videoPopup3">
+    <span id="closePopup3">×</span>
+    <video id="popupVideo3" loop>
+        <source src="/video3.mp4" type="video/mp4">
+    </video>
+</div>
+
+<script>
+   const bgMusic = document.getElementById("bgMusic");
+// 🔥 AUDIO (LOUDER NOW)
+document.body.addEventListener("click", () => {
+    if (!bgMusic) return;
+
+    bgMusic.muted = false;
+    bgMusic.volume = 0.7;
+    bgMusic.play();
+});
+
+// IMAGE ROTATION
+const images = [
+    "/images/image.png",
+    "/images/image2.png",
+    "/images/image3.png",
+    "/images/image4.png",
+    "/images/image5.png",
+    "/images/image6.png"
+];
+
+let i1 = 0;
+let i2 = 1;
+let i3 = 2;
+
+setInterval(() => {
+    i1 = (i1 + 1) % images.length;
+    i2 = (i2 + 1) % images.length;
+    i3 = (i3 + 1) % images.length;
+
+    document.getElementById("img1").src = images[i1];
+    document.getElementById("img2").src = images[i2];
+    document.getElementById("img3").src = images[i3];
+}, 3000);
+
+// FAKE SCAN
+setInterval(() => {
+    const box = document.getElementById("scanBox");
+    box.style.display = "block";
+
+    let percent = 0;
+    const interval = setInterval(() => {
+        percent += 10;
+        box.textContent = "🔍 Scanning... " + percent + "%";
+
+        if (percent >= 100) {
+            clearInterval(interval);
+            box.textContent = "⚠️ VIRUS DETECTED!";
+        }
+    }, 200);
+
+    setTimeout(() => {
+        box.style.display = "none";
+    }, 3000);
+
+}, 3000);
+
+// GLITCH WORD
+const word = document.getElementById("glitchWord");
+
+setInterval(() => {
+    word.textContent = "SCAM";
+    word.style.color = "red";
+
+    let flickers = 0;
+    const flickerInterval = setInterval(() => {
+        word.style.visibility =
+            (word.style.visibility === "hidden") ? "visible" : "hidden";
+
+        flickers++;
+
+        if (flickers > 4) {
+            clearInterval(flickerInterval);
+            word.style.visibility = "visible";
+            word.textContent = '"MUSIC"';
+            word.style.color = "";
+        }
+    }, 70);
+
+}, 5000);
+
+// VIDEO POPUP
+const babyBtn = document.getElementById("babyBtn");
+const popup = document.getElementById("videoPopup");
+const closeBtn = document.getElementById("closePopup");
+const video = document.getElementById("popupVideo");
+
+
+function showAd() {
+    popup.style.display = "block";
+
+    if (bgMusic) bgMusic.volume = 0.02;
+
+    video.currentTime = 0;
+    video.muted = false;
+    video.play().catch(()=>{});
+
+    video.onended = () => {
+        popup.style.display = "none";
+        if (bgMusic) bgMusic.volume = 0.7; // 🔊 CHANGED HERE
+    };
+}
+
+setTimeout(showAd, 10000);
+setInterval(showAd, 45000);
+
+let closeAttempt = 0;
+/////////////////////////////////////////////////////////////POP UP VID
+closeBtn.onclick = () => {
+
+    const popup2 = document.getElementById("videoPopup2");
+    const video2 = document.getElementById("popupVideo2");
+
+    // FIRST CLICK → show second popup
+    if (closeAttempt === 0) {
+    closeAttempt++;
+
+    popup2.style.display = "block";
+
+    // 🔥 KEEP MUSIC LOW
+    if (bgMusic) bgMusic.volume = 0.02;
+
+    video2.currentTime = 0;
+    video2.play().catch(()=>{});
+
+    return;
+}
+
+    // SECOND CLICK → close everything
+    popup.style.display = "none";
+    popup2.style.display = "none";
+
+    video.pause();
+    video2.pause();
+
+    if (bgMusic) bgMusic.volume = 1.0;
+
+    closeAttempt = 0;
+};
+/////////////////////////////////////////////////////POPUP VID
+
+// HOVER SOUND
+const hoverSound = document.getElementById("hoverSound");
+
+// 🔥 APPLY TO IMAGES + BUTTONS
+const hoverTargets = document.querySelectorAll(".image-row img, .spam-btn");
+
+hoverTargets.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+        if (!hoverSound) return;
+
+        hoverSound.currentTime = 0;
+        hoverSound.volume = 0.7;
+        hoverSound.play().catch(()=>{});
+    });
+});
+const closeBtn2 = document.getElementById("closePopup2");
+
+if (closeBtn2) {
+    closeBtn2.onclick = () => {
+        const popup2 = document.getElementById("videoPopup2");
+        const video2 = document.getElementById("popupVideo2");
+
+        popup2.style.display = "none";
+
+        video2.pause();
+        video2.currentTime = 0;
+
+        // 🔥 important: reset so first popup works again
+        closeAttempt = 0;
+    };
+}
+</script>
+
+
+
+
+<script>
+let y1 = 0;        // left (up)
+let y2 = -1500;    // right (start ABOVE so it can scroll down)
+
+setInterval(() => {
+
+  // LEFT → UP
+  y1 -= 1.5;
+
+  // RIGHT → DOWN
+  y2 += 1.5;
+
+  document.getElementById("leftTrack").style.transform =
+    `translateY(${y1}px)`;
+
+  document.getElementById("rightTrack").style.transform =
+    `translateY(${y2}px)`;
+
+  // 🔁 LOOP FIXES
+  if (y1 < -1500) y1 = 0;        // up reset
+  if (y2 > 0) y2 = -1500;        // down reset (KEY FIX)
+
+}, 30);
+// =========================
+
+</script>
+<script>
+// 🎬 VIDEO POPUP 3 (BUTTON ONLY)
+const popup3 = document.getElementById("videoPopup3");
+const video3 = document.getElementById("popupVideo3");
+const closeBtn3 = document.getElementById("closePopup3");
+
+if (babyBtn) {
+    babyBtn.addEventListener("click", () => {
+        popup3.style.display = "block";
+
+        // 🔻 LOWER BACKGROUND MUSIC
+        if (bgMusic) bgMusic.volume = 0.05;
+
+        video3.currentTime = 0;
+        video3.muted = false;
+        video3.volume = 1.0; // make sure video is loud
+        video3.play().catch(()=>{});
+    });
+}
+if (closeBtn3) {
+    closeBtn3.onclick = () => {
+        popup3.style.display = "none";
+
+        video3.pause();
+        video3.currentTime = 0;
+
+        // 🔊 RESTORE BACKGROUND MUSIC
+        if (bgMusic) bgMusic.volume = 0.7;
+        
+    };
+}
+
+
+</script>
+
+</body>
+</html>

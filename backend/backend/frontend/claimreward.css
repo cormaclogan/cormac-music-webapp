@@ -1,0 +1,419 @@
+/* ================= */
+/* BODY */
+/* ================= */
+
+body {
+    margin: 0;
+    font-family: "Noto Serif KR", serif;
+    background: radial-gradient(circle at center, #0a0a0a, #000);
+    color: #eee;
+    text-align: center;
+}
+
+/* ================= */
+/* NAV */
+/* ================= */
+
+nav {
+    padding: 15px;
+    border-bottom: 1px solid #500000;
+    background: rgba(0,0,0,0.9);
+}
+
+nav a {
+    color: #bbb;
+    margin: 15px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: crimson;
+    text-shadow: 0 0 8px crimson;
+}
+
+/* ================= */
+/* CONTAINER */
+/* ================= */
+
+.container {
+    position: relative;
+    max-width: 600px;
+    margin: 120px auto;
+    padding: 50px;
+
+    background: rgba(20, 0, 0, 0.6);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.1);
+
+    text-align: center;
+
+    transform: rotate(-0.3deg);
+}
+
+/* vignette overlay */
+.container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 60%, rgba(255,0,0,0.15));
+    pointer-events: none;
+}
+
+/* ================= */
+/* TITLE */
+/* ================= */
+h1 {
+    font-family: "Noto Serif KR", serif;
+    font-weight: 500;
+    letter-spacing: 6px;
+
+    font-size: 3.2rem; /* 👈 make bigger */
+}
+
+/* ================= */
+/* 🔥 NEON KOREAN SUBTITLES */
+/* ================= */
+
+.subtitle {
+    font-family: "Noto Serif KR", serif;
+
+    color: #ff1a1a;
+    font-size: 1.05rem;
+    letter-spacing: 2px;
+
+    margin-top: 6px;
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 0 4px #ff0000,
+        0 0 8px #ff0000,
+        0 0 16px rgba(255, 0, 0, 0.6);
+
+    opacity: 0.85;
+    transform: translateX(2px);
+
+    transition: 0.3s ease;
+}
+
+/* subtle intrusion variation */
+.subtitle:nth-child(even) {
+    transform: translateX(-2px);
+}
+
+/* hover = stronger glow */
+.subtitle:hover {
+    opacity: 1;
+    transform: translateX(6px);
+    text-shadow:
+        0 0 6px #ff0000,
+        0 0 12px #ff0000,
+        0 0 24px rgba(255, 0, 0, 0.8);
+}
+
+/* ================= */
+/* TEXT */
+/* ================= */
+
+p {
+    color: #bbb;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    line-height: 1.7;
+    position: relative;
+}
+
+/* subtle misalignment */
+p:nth-child(odd) {
+    left: 1px;
+}
+
+p:nth-child(even) {
+    left: -1px;
+}
+
+/* smaller text */
+.small {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* ================= */
+/* 🔥 CLEAN GLITCH EFFECT */
+/* ================= */
+
+.glitch {
+    position: relative;
+    display: inline-block;
+    color: white;
+}
+
+/* RED LAYER */
+.glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    top: 0;
+    color: red;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* CYAN LAYER */
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    top: 0;
+    color: cyan;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* subtle movement */
+.glitch::before {
+    animation: glitchShift 0.3s infinite;
+}
+
+.glitch::after {
+    animation: glitchShift 0.3s infinite reverse;
+}
+
+@keyframes glitchShift {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(1px,-1px); }
+    100% { transform: translate(0,0); }
+}
+/* ================= */
+/* SYSTEM LOG */
+/* ================= */
+
+.log-box {
+    margin: 20px auto;
+    padding: 15px;
+    width: 80%;
+
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+
+    font-size: 0.85rem;
+    text-align: left;
+
+    color: #ff3c3c;
+
+    box-shadow: 0 0 15px rgba(255,0,0,0.1);
+}
+
+.log-box p {
+    margin: 5px 0;
+    opacity: 0.8;
+}
+/* ================= */
+/* 🫀 KIDNEY BUTTON */
+/* ================= */
+
+.kidney-btn {
+    margin-left: 20px;
+    padding: 10px 15px;
+
+    background: red;
+    color: yellow;
+
+    border: 2px solid white;
+    font-family: 'Rubik Glitch', cursive;
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    animation: jitter 0.3s infinite;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 🔥 hover = aggressive */
+.kidney-btn:hover {
+    transform: scale(1.3) rotate(5deg);
+    box-shadow: 0 0 20px yellow;
+    background: yellow;
+    color: black;
+}
+
+/* 🔥 subtle shake */
+@keyframes jitter {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(-1px,1px); }
+    50% { transform: translate(1px,-1px); }
+    75% { transform: translate(-1px,0); }
+    100% { transform: translate(0,0); }
+}
+/* ================= */
+/* 🎬 CORNER VIDEO (FULL UPGRADE) */
+/* ================= */
+
+#cornerPopup {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    width: 420px;
+
+    background: black;
+    border: 4px solid red;
+
+    display: none;
+
+    z-index: 1000000;
+
+    box-shadow:
+        0 0 20px rgba(255,0,0,0.5),
+        0 0 40px rgba(255,0,0,0.3);
+
+
+    animation: popIn 0.3s ease;
+}
+
+#cornerPopup video {
+    width: 100%;
+    display: block;
+}
+
+/* 🔥 POP-IN ANIMATION */
+@keyframes popIn {
+    from {
+        transform: scale(0.7) rotate(-3deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(-1deg);
+        opacity: 1;
+    }
+}
+/* ================= */
+/* ❌ CLOSE BUTTON */
+/* ================= */
+
+#closeVideo {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+
+    z-index: 1000001;
+
+    font-family: Arial, sans-serif;
+}
+
+/* 🔥 hover = aggressive */
+#closeVideo:hover {
+    color: red;
+    transform: scale(1.3);
+}
+/* ================= */
+/* 🎬 FIRST VIDEO (LEFT) */
+/* ================= */
+
+#cornerPopup {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    width: 420px;
+
+    background: black;
+    border: 4px solid red;
+
+    display: none;
+
+    z-index: 1000000;
+
+    box-shadow:
+        0 0 20px rgba(255,0,0,0.5),
+        0 0 40px rgba(255,0,0,0.3);
+
+    animation: popIn 0.3s ease;
+}
+
+/* ================= */
+/* 🎬 SECOND VIDEO (RIGHT) */
+/* ================= */
+
+#cornerPopup2 {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 420px;
+
+    background: black;
+    border: 4px solid lime;
+
+    display: none;
+
+    z-index: 1000000;
+
+    box-shadow:
+        0 0 20px rgba(0,255,0,0.5),
+        0 0 40px rgba(0,255,0,0.3);
+
+    animation: popIn 0.3s ease;
+}
+
+#cornerPopup video,
+#cornerPopup2 video {
+    width: 100%;
+    display: block;
+}
+
+/* ================= */
+/* ❌ CLOSE BUTTONS */
+/* ================= */
+
+#closeVideo1,
+#closeVideo2 {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+
+    z-index: 1000001;
+
+    font-family: Arial, sans-serif;
+}
+
+/* 🔥 hover effects */
+#closeVideo1:hover {
+    color: red;
+    transform: scale(1.3);
+}
+
+#closeVideo2:hover {
+    color: lime;
+    transform: scale(1.3);
+}
+
+/* ================= */
+/* 🔥 POP-IN ANIMATION */
+/* ================= */
+
+@keyframes popIn {
+    from {
+        transform: scale(0.7) rotate(-3deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(-1deg);
+        opacity: 1;
+    }
+}
