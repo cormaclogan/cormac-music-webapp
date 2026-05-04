@@ -216,5 +216,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 20);
 
     }, 5000);
+// =========================
+// 🎬 VIDEO POPUP 3 (BOTTOM RIGHT)
+// =========================
+let popup3Started = false;
 
+document.addEventListener("click", () => {
+    if (!popup3Started) {
+        popup3Started = true;
+
+        setTimeout(() => {
+            const popup3 = document.getElementById("videoPopup3");
+            const video3 = document.getElementById("popupVideo3");
+
+            if (popup3 && video3) {
+                popup3.style.display = "block";
+                video3.currentTime = 0;
+                video3.play().catch(()=>{});
+            }
+        }, 3000);
+    }
+});
+
+// CLOSE BUTTON
+const closeBtn3 = document.getElementById("closePopup3");
+
+if (closeBtn3) {
+    closeBtn3.onclick = () => {
+        const popup3 = document.getElementById("videoPopup3");
+        const video3 = document.getElementById("popupVideo3");
+
+        if (popup3) popup3.style.display = "none";
+        if (video3) video3.pause();
+    };
+}
 });
