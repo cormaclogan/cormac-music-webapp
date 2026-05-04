@@ -154,19 +154,7 @@ footer {
     right: 0;
 }
 
-.ads-track {
-    display: flex;
-    flex-direction: column;
-    animation: scrollAds 6s linear infinite; /* 🔥 faster so you SEE it */
-}
 
-.ads-track img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0;
-    border: 4px solid red;
-}
 
 
 
@@ -743,20 +731,38 @@ h1 {
     word-spacing: 10px;   /* 👈 spreads words apart */
     letter-spacing: 2px;
 }
-.ads-track {
-    animation: scrollAds 3s linear infinite !important;
-    border: 5px solid yellow !important;
+/* ===== FINAL WORKING ADS ===== */
+
+.ads {
+    position: fixed;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 999;
 }
+
+.left-ads { left: 0; }
+.right-ads { right: 0; }
+
 .ads-track {
     display: flex;
     flex-direction: column;
-    animation: scrollAds 5s linear infinite !important;
+
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    animation: scrollAds 12s linear infinite;
 }
+
+.ads-track img {
+    width: 100%;
+    display: block;
+    margin: 0;
+}
+
 @keyframes scrollAds {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-100%);
-    }
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
 }
