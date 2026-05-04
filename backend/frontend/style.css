@@ -756,3 +756,14 @@ h1 {
     cursor: pointer;
     z-index: 10000001; /* above video */
 }
+#leftTrack,
+#rightTrack {
+    width: 220px;
+}
+
+#leftTrack img,
+#rightTrack img {
+    width: 100%;
+}git add .
+git commit -m "fix side ad image size"
+git push origin main
