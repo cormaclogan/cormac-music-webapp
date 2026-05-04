@@ -749,20 +749,12 @@ h1 {
     word-spacing: 10px;   /* 👈 spreads words apart */
     letter-spacing: 2px;
 }
-/*DELETE BELOW*/
-.ads {
-    background: red !important;
-    width: 200px !important;
-    height: 100vh !important;
-    z-index: 999999 !important;
-}
-
 .ads-track {
-    background: yellow !important;
+    animation: scrollAds 3s linear infinite !important;
+    border: 5px solid yellow !important;
 }
 
-.ads img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
+@keyframes scrollAds {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
 }
