@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artists</title>
+
+    <!-- Korean font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="artists.css">
+</head>
+
+<body>
+
+<!-- CUPIDS -->
+<img src="cupid.gif" class="cupid left-cupid">
+<img src="cupid.gif" class="cupid right-cupid">
+
+<!-- 🎧 AUDIO -->
+<audio id="bgMusic" loop>
+    <source src="music2.mp3" type="audio/mpeg">
+</audio>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="albums.html">Albums</a>
+    <a href="songs.html">Songs</a>
+</nav>
+
+<!-- TITLE -->
+<h1 class="glitch" data-text="ARTIST ARCHIVE">
+    ARTIST ARCHIVE
+</h1>
+<div class="subtitle">
+    음악가 기록 • 아카이브
+</div>
+
+<!-- FORM -->
+<div class="form-box">
+
+    <div class="form-row">
+
+        <div class="field">
+            <input type="text" id="artistName" placeholder="Artist Name">
+            <div class="subtitle">아티스트 이름</div>
+        </div>
+
+        <div class="field">
+            <input type="text" id="genre" placeholder="Genre">
+            <div class="subtitle">장르</div>
+        </div>
+
+        <div class="field">
+            <input type="number" id="listeners" placeholder="Monthly Listeners">
+            <div class="subtitle">월간 청취자 수</div>
+        </div>
+
+    </div>
+
+    <!-- 🔥 FIXED BUTTON -->
+    <button onclick="createArtist()">Add Artist</button>
+    <div class="subtitle">아티스트 추가</div>
+
+</div>
+
+<!-- TABLE -->
+<table id="artistTable">
+    <thead>
+        <tr>
+            <th>ID<div class="subtitle">번호</div></th>
+            <th>Artist Name<div class="subtitle">아티스트 이름</div></th>
+            <th>Genre<div class="subtitle">장르</div></th>
+            <th>Monthly Listeners<div class="subtitle">청취자 수</div></th>
+            <th>Actions<div class="subtitle">작업</div></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Data loads here -->
+    </tbody>
+</table>
+
+<!-- JS -->
+<script src="artists.js" defer></script>
+
+<!-- 🎧 MUSIC START ON CLICK -->
+<script>
+let started = false;
+
+document.addEventListener("click", () => {
+    if (!started) {
+        const music = document.getElementById("bgMusic");
+        music.volume = 0.5; // 🔊 lower volume here
+        music.play();
+        started = true;
+    }
+});
+</script>
+
+</body>
+</html>
