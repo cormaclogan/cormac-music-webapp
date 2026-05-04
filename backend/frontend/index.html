@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">  
 <head>
+    
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
@@ -39,6 +40,25 @@
 </head>
 
 <body> 
+
+
+
+
+<div style="position:fixed; left:0; top:0; width:200px; height:100vh; overflow:hidden; background:black; z-index:999999;">
+  <div id="testTrack">
+    <img src="/ads/ad1.png" style="width:100%;">
+    <img src="/ads/ad2.png" style="width:100%;">
+    <img src="/ads/ad3.png" style="width:100%;">
+    <img src="/ads/ad4.png" style="width:100%;">
+    <img src="/ads/ad5.png" style="width:100%;">
+    <img src="/ads/ad6.png" style="width:100%;">
+  </div>
+</div>
+
+
+
+
+
 
 <nav>
     <button class="spam-btn left-spam">FREE REAL ESTATE</button>
@@ -317,6 +337,13 @@ if (closeBtn2) {
         closeAttempt = 0;
     };
 }
+</script>
+<script>
+let y = 0;
+setInterval(() => {
+  y -= 2;
+  document.getElementById("testTrack").style.transform = `translateY(${y}px)`;
+}, 30);
 </script>
 
 </body>
