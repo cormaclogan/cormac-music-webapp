@@ -776,12 +776,12 @@ h1 {
     max-width: 90vw;
 
     background: black;
-    border: 8px solid lime;
+    border: 8px solid red;
 
     z-index: 10000000;
     display: none;
 
-    box-shadow: 0 0 60px lime;
+    box-shadow: 0 0 60px red;
 }
 
 #videoPopup4 video {
