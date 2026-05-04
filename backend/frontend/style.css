@@ -143,47 +143,40 @@ footer {
     width: 220px;
     height: 100vh;
     overflow: hidden;
-
     z-index: 999;
 }
 
-.left-ads { left: 0; }
-.right-ads { right: 0; }
+.left-ads {
+    left: 0;
+}
+
+.right-ads {
+    right: 0;
+}
 
 .ads-track {
     display: flex;
     flex-direction: column;
-    min-height: 200%;   /* 🔥 ADD THIS */
+    animation: scrollAds 12s linear infinite;
 }
 
-.ads img {
+.ads-track img {
     width: 100%;
-    height: 260px;
-    object-fit: cover;
-    margin-bottom: 20px;
+    height: auto;
+    display: block;
+    margin: 0;
     border: 4px solid red;
-
-    animation: none !important;
-    transform: none !important;
 }
 
-.left-ads .ads-track {
-    animation: scrollUp 12s linear infinite;
+@keyframes scrollAds {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-50%);
+    }
 }
 
-.right-ads .ads-track {
-    animation: scrollUp 12s linear infinite;
-}
-
-@keyframes scrollUp {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); }
-}
-
-.ads img:hover {
-    transform: scale(1.25) rotate(6deg);
-    box-shadow: 0 0 25px yellow;
-}
 
 /* ========================= */
 /* 🔥 BOTTOM TICKER 🔥 */
