@@ -731,18 +731,16 @@ h1 {
 
 #videoPopup3 {
     position: fixed;
-
     bottom: 20px;
     right: 20px;
 
-    width: 500px;           /* ✅ MATCH OTHER POPUPS */
+    width: 500px;
     background: black;
     border: 4px solid yellow;
 
-    z-index: 999999;
+    z-index: 9999999 !important; /* 🔥 FORCE TOP */
     display: none;
 }
-
 #videoPopup3 video {
     display: block;
     width: 500px;           /* ✅ FORCE SAME SIZE */
