@@ -766,3 +766,39 @@ h1 {
     0% { transform: translateY(0); }
     100% { transform: translateY(-50%); }
 }
+/* ===== HARD OVERRIDE ADS SYSTEM ===== */
+
+.ads {
+    position: fixed !important;
+    top: 0 !important;
+    width: 200px !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+    z-index: 999999 !important;
+    background: black !important;
+}
+
+.left-ads { left: 0 !important; }
+.right-ads { right: 0 !important; }
+
+.ads-track {
+    position: absolute !important;
+    top: 0 !important;
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    animation: scrollAds 8s linear infinite !important;
+}
+
+.ads-track img {
+    width: 100% !important;
+    display: block !important;
+    margin: 0 !important;
+}
+
+@keyframes scrollAds {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
