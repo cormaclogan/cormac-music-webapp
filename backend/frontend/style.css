@@ -168,14 +168,8 @@ footer {
     border: 4px solid red;
 }
 
-@keyframes scrollAds {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-100%);
-    }
-}
+
+
 
 
 /* ========================= */
@@ -753,8 +747,16 @@ h1 {
     animation: scrollAds 3s linear infinite !important;
     border: 5px solid yellow !important;
 }
-
+.ads-track {
+    display: flex;
+    flex-direction: column;
+    animation: scrollAds 5s linear infinite !important;
+}
 @keyframes scrollAds {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); }
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
 }
