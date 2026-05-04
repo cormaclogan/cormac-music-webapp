@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const Database = require('better-sqlite3');
+const sqlite3 = require('sqlite3').verbose();
 
 const dbDir = path.join(__dirname, 'data');
 
@@ -11,14 +11,14 @@ if (!fs.existsSync(dbDir)) {
 
 const dbPath = path.join(dbDir, 'app.db');
 
-// 🔥 SAFE INIT
-let db;
-try {
-    db = new Database(dbPath);
-    console.log("Database connected");
-} catch (err) {
-    console.error("DB ERROR:", err);
-    process.exit(1); // force crash with visible error
-}
+// ✅ CORRECT sqlite3 INIT
+const db = new sqlite3.Database(dbPath, (err) => {
+    if (err) {
+        console.error("DB ERROR:", err);
+        process.exit(1);
+    } else {
+        console.log("✅ Database connected");
+    }
+});
 
 module.exports = db;

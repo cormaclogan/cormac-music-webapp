@@ -1,4 +1,4 @@
-const API_URL = "/artists";
+const API_URL = "http://localhost:5000/artists"; // 🔥 force correct backend
 
 // =========================
 // LOAD ALL ARTISTS
@@ -6,9 +6,21 @@ const API_URL = "/artists";
 async function loadArtists() {
     try {
         const res = await fetch(API_URL);
+
+        // 🔥 HANDLE SERVER ERRORS PROPERLY
+        if (!res.ok) {
+            const text = await res.text();
+            throw new Error("Server error: " + text);
+        }
+
         const data = await res.json();
 
         const table = document.querySelector("#artistTable tbody");
+        if (!table) {
+            console.error("❌ Table not found");
+            return;
+        }
+
         table.innerHTML = "";
 
         data.forEach(artist => {
@@ -20,7 +32,7 @@ async function loadArtists() {
                     <td>${artist.monthly_listeners}</td>
                     <td>
                         <button onclick="deleteArtist(${artist.artist_id})">Delete</button>
-                        <button onclick='editArtist(${artist.artist_id}, "${artist.artist_name}", "${artist.genre}", ${artist.monthly_listeners})'>Edit</button>
+                        <button onclick='editArtist(${artist.artist_id}, ${JSON.stringify(artist.artist_name)}, ${JSON.stringify(artist.genre)}, ${artist.monthly_listeners})'>Edit</button>
                     </td>
                 </tr>
             `;
@@ -28,7 +40,8 @@ async function loadArtists() {
         });
 
     } catch (err) {
-        console.error("Error loading artists:", err);
+        console.error("❌ Error loading artists:", err);
+        alert("Backend error — check server!");
     }
 }
 
@@ -58,21 +71,22 @@ async function createArtist() {
             })
         });
 
-        if (res.ok) {
-            alert("Artist added successfully");
-
-            // CLEAR INPUTS
-            document.getElementById("artistName").value = "";
-            document.getElementById("genre").value = "";
-            document.getElementById("listeners").value = "";
-        } else {
-            alert("Error adding artist ❌");
+        if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text);
         }
+
+        alert("✅ Artist added");
+
+        document.getElementById("artistName").value = "";
+        document.getElementById("genre").value = "";
+        document.getElementById("listeners").value = "";
 
         loadArtists();
 
     } catch (err) {
-        console.error("Error creating artist:", err);
+        console.error("❌ Error creating artist:", err);
+        alert("Create failed");
     }
 }
 
@@ -83,14 +97,18 @@ async function deleteArtist(id) {
     if (!confirm("Delete this artist?")) return;
 
     try {
-        await fetch(`${API_URL}/${id}`, {
+        const res = await fetch(`${API_URL}/${id}`, {
             method: "DELETE"
         });
+
+        if (!res.ok) {
+            throw new Error("Delete failed");
+        }
 
         loadArtists();
 
     } catch (err) {
-        console.error("Error deleting artist:", err);
+        console.error("❌ Error deleting artist:", err);
     }
 }
 
@@ -115,7 +133,7 @@ function editArtist(id, name, genre, listeners) {
 // =========================
 async function updateArtist(id, artist_name, genre, monthly_listeners) {
     try {
-        await fetch(`${API_URL}/${id}`, {
+        const res = await fetch(`${API_URL}/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -127,17 +145,21 @@ async function updateArtist(id, artist_name, genre, monthly_listeners) {
             })
         });
 
-        alert("Artist updated! ✏️");
+        if (!res.ok) {
+            throw new Error("Update failed");
+        }
+
+        alert("✏️ Artist updated");
 
         loadArtists();
 
     } catch (err) {
-        console.error("Error updating artist:", err);
+        console.error("❌ Error updating artist:", err);
     }
 }
 
 // =========================
-// GLOBAL FUNCTIONS (REQUIRED)
+// GLOBAL FUNCTIONS
 // =========================
 window.createArtist = createArtist;
 window.deleteArtist = deleteArtist;
