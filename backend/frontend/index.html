@@ -463,34 +463,46 @@ if (startBtn && music) {
     });
 }
 </script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-const realEstateBtn = document.getElementById("realEstateBtn");
-const popup4 = document.getElementById("videoPopup4");
-const video4 = document.getElementById("popupVideo4");
-const closeBtn4 = document.getElementById("closePopup4");
+    const realEstateBtn = document.getElementById("realEstateBtn");
+    const popup4 = document.getElementById("videoPopup4");
+    const video4 = document.getElementById("popupVideo4");
+    const closeBtn4 = document.getElementById("closePopup4");
+    const bgMusic4 = document.getElementById("bgMusic");
 
-if (realEstateBtn) {
-    realEstateBtn.addEventListener("click", () => {
-        popup4.style.display = "block";
+    if (realEstateBtn) {
+        realEstateBtn.addEventListener("click", () => {
 
-        video4.currentTime = 0;
-        video4.muted = false;
+            popup4.style.display = "block";
 
-        video4.play().catch(err => {
-            console.log("VIDEO4 ERROR:", err);
+            // 🔻 LOWER MUSIC
+            if (bgMusic4) bgMusic4.volume = 0.05;
+
+            video4.currentTime = 0;
+
+            video4.muted = true;
+            video4.play().then(() => {
+                video4.muted = false;
+                video4.volume = 1.0;
+            }).catch(err => console.log(err));
         });
-    });
-}
+    }
 
-if (closeBtn4) {
-    closeBtn4.onclick = () => {
-        popup4.style.display = "none";
-        video4.pause();
-        video4.currentTime = 0;
-    };
-}
+    if (closeBtn4) {
+        closeBtn4.onclick = () => {
+
+            popup4.style.display = "none";
+
+            video4.pause();
+            video4.currentTime = 0;
+
+            // 🔊 RESTORE MUSIC
+            if (bgMusic4) bgMusic4.volume = 0.7;
+        };
+    }
 
 });
 </script>
@@ -526,6 +538,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
+
 </body>
 </html>
 <!-- redeploy -->
