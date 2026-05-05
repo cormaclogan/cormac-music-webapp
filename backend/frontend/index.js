@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    setTimeout(showAd, 10000);
+    setTimeout(showAd, 5000);
     setInterval(showAd, 45000);
 
     // =========================
