@@ -247,7 +247,7 @@ if (closeBtn4) {
         video4.currentTime = 0;
 
         // 🔊 RESTORE MUSIC
-        if (bgMusic4) bgMusic4.volume = 0.15;
+        if (bgMusic4) bgMusic4.volume = 0.7;
     };
 }
 
