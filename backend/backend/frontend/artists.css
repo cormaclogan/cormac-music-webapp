@@ -188,7 +188,7 @@ tr {
     top: 80px;
     width: 200px;
 
-    z-index: -1; /* 👈 now actually behind everything */
+    z-index: 0;/* 👈 now actually behind everything */
 }
 
 /* keep them near original position */
