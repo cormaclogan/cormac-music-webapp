@@ -226,3 +226,100 @@ table tr:hover {
 table tr:hover td {
     color: white;
 }
+/* ================= */
+/* VIDEO POPUP */
+/* ================= */
+
+#videoPopup{
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.92);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    backdrop-filter: blur(3px);
+}
+
+/* ================= */
+/* VIDEO BOX */
+/* ================= */
+
+.videoBox{
+    position: relative;
+
+    width: 70%;
+    max-width: 950px;
+
+    border: 1px solid #500000;
+    background: rgba(255, 0, 0, 0.03);
+
+    padding: 15px;
+
+    box-shadow:
+        0 0 25px rgba(255,0,0,0.2),
+        0 0 60px rgba(255,0,0,0.08);
+}
+
+/* ================= */
+/* VIDEO */
+/* ================= */
+
+#mjVideo{
+    width: 100%;
+
+    border: 1px solid #400000;
+    background: black;
+
+    display: block;
+}
+
+/* ================= */
+/* CLOSE BUTTON */
+/* ================= */
+
+#closeVideo{
+    position: absolute;
+
+    top: -50px;
+    right: 0;
+
+    color: #bbb;
+    font-size: 2.5rem;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+/* HOVER */
+
+#closeVideo:hover{
+    color: red;
+    transform: scale(1.15);
+}
+
+/* ================= */
+/* VIDEO ANIMATION */
+/* ================= */
+
+.videoBox{
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
