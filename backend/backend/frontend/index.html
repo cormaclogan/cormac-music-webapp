@@ -94,15 +94,17 @@
 
 
 <nav>
-    <button class="spam-btn left-spam">FREE REAL ESTATE</button>
+    <button id="realEstateBtn" class="spam-btn left-spam">
+  FREE REAL ESTATE
+</button>
     <a href="artists.html">Artists</a>
     <a href="albums.html">Albums</a>
     <a href="songs.html">Songs</a>
     <button id="babyBtn" class="spam-btn right-spam">DOWNLOAD A BABY</button>
 </nav>
 
-<div class="counter">
-923,817 USERS JOINED TODAY!!!
+<div class="counter" id="userCounter">
+99,856 USERS JOINED TODAY!!!
 </div>
 
 <div class="alert-bar">
@@ -152,12 +154,12 @@
         <img src="/ads/ad6.png">
     </div>
 </div>
-<audio id="bgMusic" autoplay loop muted>
+<audio id="bgMusic" loop muted>
     <source src="/music.mp3" type="audio/mpeg">
 </audio>
 
 <marquee scrollamount="20">
-🔥 CLICK HERE FOR FREE HUMANS 🔥 LIMITED TIME 🔥 FREE HUMANS! 🔥
+🧍 CLICK HERE FOR FREE HUMANS 🧍 LIMITED TIME 🧍 FREE HUMANS! 🧍
 </marquee>
 
 <div class="container">
@@ -206,17 +208,15 @@ Webpage
         <source src="/video3.mp4" type="video/mp4">
     </video>
 </div>
-
+<div id="videoPopup4">
+    <span id="closePopup4">×</span>
+    <video id="popupVideo4" loop>
+        <source src="/video4.mp4" type="video/mp4">
+    </video>
+</div>
 <script>
    const bgMusic = document.getElementById("bgMusic");
-// 🔥 AUDIO (LOUDER NOW)
-document.body.addEventListener("click", () => {
-    if (!bgMusic) return;
 
-    bgMusic.muted = false;
-    bgMusic.volume = 0.7;
-    bgMusic.play();
-});
 
 // IMAGE ROTATION
 const images = [
@@ -413,6 +413,7 @@ setInterval(() => {
 <script>
 // 🎬 VIDEO POPUP 3 (BUTTON ONLY)
 const popup3 = document.getElementById("videoPopup3");
+const bgMusic3 = document.getElementById("bgMusic");
 const video3 = document.getElementById("popupVideo3");
 const closeBtn3 = document.getElementById("closePopup3");
 
@@ -421,7 +422,7 @@ if (babyBtn) {
         popup3.style.display = "block";
 
         // 🔻 LOWER BACKGROUND MUSIC
-        if (bgMusic) bgMusic.volume = 0.05;
+        bgMusic3.volume = 0.05;
 
         video3.currentTime = 0;
         video3.muted = false;
@@ -437,13 +438,109 @@ if (closeBtn3) {
         video3.currentTime = 0;
 
         // 🔊 RESTORE BACKGROUND MUSIC
-        if (bgMusic) bgMusic.volume = 0.7;
+        bgMusic3.volume = 0.7;
         
     };
 }
 
 
 </script>
+<script>
+const startBtn = document.getElementById("startAudioBtn");
+const music = document.getElementById("bgMusic");
+
+if (startBtn && music) {
+    startBtn.addEventListener("click", () => {
+
+        if (music.paused) {
+            music.muted = false;
+            music.volume = 0.3;
+            music.play().catch(()=>{});
+        } else {
+            music.pause();
+        }
+
+    });
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const realEstateBtn = document.getElementById("realEstateBtn");
+    const popup4 = document.getElementById("videoPopup4");
+    const video4 = document.getElementById("popupVideo4");
+    const closeBtn4 = document.getElementById("closePopup4");
+    const bgMusic4 = document.getElementById("bgMusic");
+
+    if (realEstateBtn) {
+        realEstateBtn.addEventListener("click", () => {
+
+            popup4.style.display = "block";
+
+            // 🔻 LOWER MUSIC
+            if (bgMusic4) bgMusic4.volume = 0.05;
+
+            video4.currentTime = 0;
+
+            video4.muted = true;
+            video4.play().then(() => {
+                video4.muted = false;
+                video4.volume = 1.0;
+            }).catch(err => console.log(err));
+        });
+    }
+
+    if (closeBtn4) {
+        closeBtn4.onclick = () => {
+
+            popup4.style.display = "none";
+
+            video4.pause();
+            video4.currentTime = 0;
+
+            // 🔊 RESTORE MUSIC
+            if (bgMusic4) bgMusic4.volume = 0.7;
+        };
+    }
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const counterEl = document.getElementById("userCounter");
+
+    let count = 99856;
+
+    function formatNumber(num) {
+        return num.toLocaleString();
+    }
+
+    function updateCounter() {
+        let increase = Math.floor(Math.random() * 40) + 5;
+
+        if (Math.random() < 0.1) {
+            increase += Math.floor(Math.random() * 500);
+        }
+
+        count += increase;
+
+        counterEl.textContent =
+            `${formatNumber(count)} USERS JOINED TODAY!!!`;
+
+        const nextUpdate = Math.random() * 3000 + 1000;
+
+        setTimeout(updateCounter, nextUpdate);
+    }
+
+    updateCounter();
+
+});
+</script>
+
 
 </body>
 </html>
+<!-- redeploy -->
+ <!-- redeploy -->

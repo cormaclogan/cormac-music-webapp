@@ -95,13 +95,14 @@
 
         <span id="closeVideo">&times;</span>
 
-        <video id="mjVideo" controls muted autoplay>
+        <video id="mjVideo" controls>
             <source src="video5.mp4" type="video/mp4">
         </video>
 
     </div>
 
 </div>
+<script src="artists.js" defer></script>
 
 <!-- SCRIPT -->
 <script>
@@ -136,8 +137,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const popup = document.getElementById("videoPopup");
 
     const video = document.getElementById("mjVideo");
+    const audioContext = new AudioContext();
 
-    const closeBtn = document.getElementById("closeVideo");
+const source = audioContext.createMediaElementSource(video);
+
+const gainNode = audioContext.createGain();
+
+gainNode.gain.value = 2.0;
+
+source.connect(gainNode);
+
+gainNode.connect(audioContext.destination);
+
+const closeBtn = document.getElementById("closeVideo");
+
 
     let popupOpened = false;
 
@@ -157,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             video.play();
 
-            music.volume = 0.1;
+            music.volume = 0.03;
 
             popupOpened = true;
         }

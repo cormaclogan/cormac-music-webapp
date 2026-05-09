@@ -252,8 +252,8 @@ table tr:hover td {
 .videoBox{
     position: relative;
 
-    width: 70%;
-    max-width: 950px;
+    width: 45%;
+    max-width: 650px;
 
     border: 1px solid #500000;
     background: rgba(255, 0, 0, 0.03);

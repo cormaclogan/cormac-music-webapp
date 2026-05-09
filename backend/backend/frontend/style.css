@@ -756,3 +756,50 @@ h1 {
     cursor: pointer;
     z-index: 10000001; /* above video */
 }
+#leftTrack,
+#rightTrack {
+    width: 220px;
+}
+
+#leftTrack img,
+#rightTrack img {
+    width: 100%;
+}
+#videoPopup4 {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 700px;
+    max-width: 90vw;
+
+    background: black;
+    border: 8px solid red;
+
+    z-index: 10000000;
+    display: none;
+
+    box-shadow: 0 0 60px red;
+}
+
+#videoPopup4 video {
+    width: 100%;
+}
+
+#closePopup4 {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+
+    font-size: 32px;
+    background: red;
+    border: 2px solid white;
+
+    width: 45px;
+    height: 45px;
+
+    cursor: pointer;
+    z-index: 10000001;
+}
