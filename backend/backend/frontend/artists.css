@@ -338,3 +338,6 @@ table{
     position: relative;
     z-index: 2;
 }
+.cupid{
+    pointer-events: auto;
+}

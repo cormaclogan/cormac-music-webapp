@@ -146,29 +146,27 @@ const rightCupid = document.getElementById("rightCupid");
     
 
     /* ========================= */
-    /* VIDEO TRIGGER */
+    /* cupid shit */
     /* ========================= */
-    leftCupid.addEventListener("click", () => {
+ leftCupid.addEventListener("mousedown", () => {
     music.volume = 0.05;
 
     leftCupidSound.currentTime = 0;
-
     leftCupidSound.play();
 });
-leftCupidSound.addEventListener("ended", () => {
 
+leftCupidSound.addEventListener("ended", () => {
     music.volume = 0.5;
 });
 
-rightCupid.addEventListener("click", () => {
+rightCupid.addEventListener("mousedown", () => {
     music.volume = 0.05;
 
     rightCupidSound.currentTime = 0;
-
     rightCupidSound.play();
 });
-rightCupidSound.addEventListener("ended", () => {
 
+rightCupidSound.addEventListener("ended", () => {
     music.volume = 0.5;
 });
     
