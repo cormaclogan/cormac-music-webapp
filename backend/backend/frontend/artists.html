@@ -149,9 +149,11 @@ document.addEventListener("DOMContentLoaded", () => {
             .trim()
             .toLowerCase();
 
-        if (value === "michael jackson" && !popupOpened) {
+        if (value.includes("michael jackson") && !popupOpened){
 
             popup.style.display = "flex";
+            popup.style.visibility = "visible";
+            popup.style.opacity = "1";
 
             video.play();
 
@@ -160,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
             popupOpened = true;
         }
 
-        if (value !== "michael jackson") {
+        if (!value.includes("michael jackson")) {
 
             popupOpened = false;
         }
