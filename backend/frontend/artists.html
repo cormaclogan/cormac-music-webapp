@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Artists</title>
 
-    <!-- Korean font -->
+    <!-- Korean Font -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- CSS -->
@@ -17,7 +18,7 @@
 <img src="cupid.gif" class="cupid left-cupid">
 <img src="cupid.gif" class="cupid right-cupid">
 
-<!-- 🎧 AUDIO -->
+<!-- AUDIO -->
 <audio id="bgMusic" loop>
     <source src="music2.mp3" type="audio/mpeg">
 </audio>
@@ -33,6 +34,7 @@
 <h1 class="glitch" data-text="ARTIST ARCHIVE">
     ARTIST ARCHIVE
 </h1>
+
 <div class="subtitle">
     음악가 기록 • 아카이브
 </div>
@@ -59,14 +61,17 @@
 
     </div>
 
-    <!-- 🔥 FIXED BUTTON -->
     <button onclick="createArtist()">Add Artist</button>
-    <div class="subtitle">아티스트 추가</div>
+
+    <div class="subtitle">
+        아티스트 추가
+    </div>
 
 </div>
 
 <!-- TABLE -->
 <table id="artistTable">
+
     <thead>
         <tr>
             <th>ID<div class="subtitle">번호</div></th>
@@ -78,24 +83,104 @@
     </thead>
 
     <tbody>
-        <!-- Data loads here -->
+        <!-- Data -->
     </tbody>
+
 </table>
 
-<!-- JS -->
-<script src="artists.js" defer></script>
+<!-- VIDEO POPUP -->
+<div id="videoPopup">
 
-<!-- 🎧 MUSIC START ON CLICK -->
+    <div class="videoBox">
+
+        <span id="closeVideo">&times;</span>
+
+        <video id="mjVideo" controls muted autoplay>
+            <source src="video5.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
 <script>
-let started = false;
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("click", () => {
-    if (!started) {
-        const music = document.getElementById("bgMusic");
-        music.volume = 0.5; // 🔊 lower volume here
-        music.play();
-        started = true;
-    }
+    /* ========================= */
+    /* MUSIC START ON CLICK */
+    /* ========================= */
+
+    const music = document.getElementById("bgMusic");
+
+    let started = false;
+
+    document.addEventListener("click", () => {
+
+        if (!started) {
+
+            music.volume = 0.5;
+
+            music.play();
+
+            started = true;
+        }
+    });
+
+    /* ========================= */
+    /* VIDEO TRIGGER */
+    /* ========================= */
+
+    const artistInput = document.getElementById("artistName");
+
+    const popup = document.getElementById("videoPopup");
+
+    const video = document.getElementById("mjVideo");
+
+    const closeBtn = document.getElementById("closeVideo");
+
+    let popupOpened = false;
+
+    /* LIVE INPUT DETECTION */
+
+    artistInput.addEventListener("input", () => {
+
+        const value = artistInput.value
+            .trim()
+            .toLowerCase();
+
+        if (value.includes("michael jackson") && !popupOpened){
+
+            popup.style.display = "flex";
+            popup.style.visibility = "visible";
+            popup.style.opacity = "1";
+
+            video.play();
+
+            music.volume = 0.1;
+
+            popupOpened = true;
+        }
+
+        if (!value.includes("michael jackson")) {
+
+            popupOpened = false;
+        }
+    });
+
+    /* CLOSE VIDEO */
+
+    closeBtn.addEventListener("click", () => {
+
+        popup.style.display = "none";
+
+        video.pause();
+
+        video.currentTime = 0;
+
+        music.volume = 0.5;
+    });
+
 });
 </script>
 
