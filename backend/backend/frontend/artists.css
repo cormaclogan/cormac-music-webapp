@@ -330,7 +330,7 @@ html{
 .left-cupid,
 .right-cupid{
     cursor: pointer;
-    z-index: 3;
+    z-index: 999;
 }
 nav,
 .form-box,
