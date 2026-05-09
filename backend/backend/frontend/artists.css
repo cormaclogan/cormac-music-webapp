@@ -189,7 +189,6 @@ tr {
     width: 200px;
 
     z-index: -1; /* 👈 now actually behind everything */
-    pointer-events: none;
 }
 
 /* keep them near original position */
@@ -322,4 +321,9 @@ table tr:hover td {
         opacity: 1;
         transform: scale(1);
     }
+}
+/* STOP SCROLLBAR FLICKER */
+
+html{
+    overflow-y: scroll;
 }

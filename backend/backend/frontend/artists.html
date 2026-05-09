@@ -15,12 +15,21 @@
 <body>
 
 <!-- CUPIDS -->
-<img src="cupid.gif" class="cupid left-cupid">
-<img src="cupid.gif" class="cupid right-cupid">
+<img src="cupid.gif" class="cupid left-cupid" id="leftCupid">
+
+<img src="cupid.gif" class="cupid right-cupid" id="rightCupid">
 
 <!-- AUDIO -->
 <audio id="bgMusic" loop>
+    
     <source src="music2.mp3" type="audio/mpeg">
+</audio>
+<audio id="leftCupidSound">
+    <source src="leftcupid.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="rightCupidSound">
+    <source src="rightcupid.mp3" type="audio/mpeg">
 </audio>
 
 <!-- NAVBAR -->
@@ -113,6 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ========================= */
 
     const music = document.getElementById("bgMusic");
+    const leftCupidSound = document.getElementById("leftCupidSound");
+
+const rightCupidSound = document.getElementById("rightCupidSound");
+
+const leftCupid = document.getElementById("leftCupid");
+
+const rightCupid = document.getElementById("rightCupid");
 
     let started = false;
 
@@ -131,6 +147,20 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ========================= */
     /* VIDEO TRIGGER */
     /* ========================= */
+    leftCupid.addEventListener("click", () => {
+
+    leftCupidSound.currentTime = 0;
+
+    leftCupidSound.play();
+});
+
+rightCupid.addEventListener("click", () => {
+
+    rightCupidSound.currentTime = 0;
+
+    rightCupidSound.play();
+});
+    
 
     const artistInput = document.getElementById("artistName");
 
