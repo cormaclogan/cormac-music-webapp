@@ -137,8 +137,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const popup = document.getElementById("videoPopup");
 
     const video = document.getElementById("mjVideo");
+    const audioContext = new AudioContext();
 
-    const closeBtn = document.getElementById("closeVideo");
+const source = audioContext.createMediaElementSource(video);
+
+const gainNode = audioContext.createGain();
+
+gainNode.gain.value = 1.5;
+
+source.connect(gainNode);
+
+gainNode.connect(audioContext.destination);
+
+const closeBtn = document.getElementById("closeVideo");
+
 
     let popupOpened = false;
 
