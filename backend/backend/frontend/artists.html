@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Artists</title>
 
-    <!-- Korean font -->
+    <!-- Korean Font -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- CSS -->
@@ -17,7 +18,7 @@
 <img src="cupid.gif" class="cupid left-cupid">
 <img src="cupid.gif" class="cupid right-cupid">
 
-<!-- 🎧 AUDIO -->
+<!-- AUDIO -->
 <audio id="bgMusic" loop>
     <source src="music2.mp3" type="audio/mpeg">
 </audio>
@@ -33,6 +34,7 @@
 <h1 class="glitch" data-text="ARTIST ARCHIVE">
     ARTIST ARCHIVE
 </h1>
+
 <div class="subtitle">
     음악가 기록 • 아카이브
 </div>
@@ -59,14 +61,17 @@
 
     </div>
 
-    <!-- 🔥 FIXED BUTTON -->
     <button onclick="createArtist()">Add Artist</button>
-    <div class="subtitle">아티스트 추가</div>
+
+    <div class="subtitle">
+        아티스트 추가
+    </div>
 
 </div>
 
 <!-- TABLE -->
 <table id="artistTable">
+
     <thead>
         <tr>
             <th>ID<div class="subtitle">번호</div></th>
@@ -78,125 +83,104 @@
     </thead>
 
     <tbody>
-        <!-- Data loads here -->
+        <!-- Data -->
     </tbody>
+
 </table>
 
-<!-- JS -->
-<script src="artists.js" defer></script>
+<!-- VIDEO POPUP -->
+<div id="videoPopup">
 
-<!-- 🎧 MUSIC START ON CLICK -->
-<script>
-let started = false;
-
-document.addEventListener("click", () => {
-    if (!started) {
-        const music = document.getElementById("bgMusic");
-        music.volume = 0.5; // 🔊 lower volume here
-        music.play();
-        started = true;
-    }
-});
-</script>
-<script>
-/* MUSIC START */
-let started = false;
-
-document.addEventListener("click", () => {
-    if (!started) {
-        const music = document.getElementById("bgMusic");
-        music.volume = 0.5;
-        music.play();
-        started = true;
-    }
-});
-
-/* VIDEO TRIGGER */
-const artistInput = document.getElementById("artistName");
-
-const music = document.getElementById("bgMusic");
-
-let popupOpened = false;
-
-/* CREATE VIDEO POPUP */
-const popup = document.createElement("div");
-popup.id = "videoPopup";
-
-popup.innerHTML = `
     <div class="videoBox">
 
         <span id="closeVideo">&times;</span>
 
-        <video id="mjVideo" controls autoplay>
+        <video id="mjVideo" controls>
             <source src="video5.mp4" type="video/mp4">
         </video>
 
     </div>
-`;
 
-document.body.appendChild(popup);
+</div>
 
-/* STYLE POPUP */
-popup.style.position = "fixed";
-popup.style.inset = "0";
-popup.style.background = "rgba(0,0,0,0.85)";
-popup.style.display = "none";
-popup.style.justifyContent = "center";
-popup.style.alignItems = "center";
-popup.style.zIndex = "9999";
+<!-- SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
-const videoBox = popup.querySelector(".videoBox");
+    /* ========================= */
+    /* MUSIC START ON CLICK */
+    /* ========================= */
 
-videoBox.style.position = "relative";
-videoBox.style.width = "70%";
-videoBox.style.maxWidth = "900px";
+    const music = document.getElementById("bgMusic");
 
-const video = document.getElementById("mjVideo");
+    let started = false;
 
-video.style.width = "100%";
-video.style.border = "3px solid hotpink";
-video.style.borderRadius = "12px";
+    document.addEventListener("click", () => {
 
-const closeBtn = document.getElementById("closeVideo");
+        if (!started) {
 
-closeBtn.style.position = "absolute";
-closeBtn.style.top = "-45px";
-closeBtn.style.right = "0";
-closeBtn.style.fontSize = "45px";
-closeBtn.style.color = "white";
-closeBtn.style.cursor = "pointer";
+            music.volume = 0.5;
 
-/* LIVE INPUT DETECTION */
-artistInput.addEventListener("input", () => {
+            music.play();
 
-    const value = artistInput.value.trim().toLowerCase();
+            started = true;
+        }
+    });
 
-    if (value === "michael jackson" && !popupOpened) {
+    /* ========================= */
+    /* VIDEO TRIGGER */
+    /* ========================= */
 
-        popup.style.display = "flex";
+    const artistInput = document.getElementById("artistName");
 
-        video.play();
+    const popup = document.getElementById("videoPopup");
 
-        music.volume = 0.1;
+    const video = document.getElementById("mjVideo");
 
-        popupOpened = true;
-    }
+    const closeBtn = document.getElementById("closeVideo");
 
-    if (value !== "michael jackson") {
-        popupOpened = false;
-    }
-});
+    let popupOpened = false;
 
-/* CLOSE VIDEO */
-closeBtn.addEventListener("click", () => {
+    /* LIVE INPUT DETECTION */
 
-    popup.style.display = "none";
+    artistInput.addEventListener("input", () => {
 
-    video.pause();
-    video.currentTime = 0;
+        const value = artistInput.value
+            .trim()
+            .toLowerCase();
 
-    music.volume = 0.5;
+        if (value === "michael jackson" && !popupOpened) {
+
+            popup.style.display = "flex";
+
+            video.play();
+
+            music.volume = 0.1;
+
+            popupOpened = true;
+        }
+
+        if (value !== "michael jackson") {
+
+            popupOpened = false;
+        }
+    });
+
+    /* CLOSE VIDEO */
+
+    closeBtn.addEventListener("click", () => {
+
+        popup.style.display = "none";
+
+        video.pause();
+
+        video.currentTime = 0;
+
+        music.volume = 0.5;
+    });
+
 });
 </script>
+
 </body>
 </html>
