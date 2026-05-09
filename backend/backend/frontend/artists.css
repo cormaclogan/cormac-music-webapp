@@ -327,3 +327,14 @@ table tr:hover td {
 html{
     overflow-y: scroll;
 }
+.left-cupid,
+.right-cupid{
+    cursor: pointer;
+    z-index: 3;
+}
+nav,
+.form-box,
+table{
+    position: relative;
+    z-index: 2;
+}
