@@ -181,7 +181,7 @@ tr {
 /* CUPIDS */
 /* ================= */
 .cupid {
-    position: fixed;
+    position: absolute;
     top: 80px;
     width: 200px;
 
@@ -234,7 +234,7 @@ body > *{
 
 .left-cupid-wrapper,
 .right-cupid-wrapper{
-    position: fixed;
+    position: absolute;
     top: 80px;
 
     width: 200px;
