@@ -138,6 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ========================= */
 
     const music = document.getElementById("bgMusic");
+    const leftCupidSound = document.getElementById("leftCupidSound");
+const rightCupidSound = document.getElementById("rightCupidSound");
+
+leftCupidSound.addEventListener("ended", () => {
+    music.volume = 0.5;
+});
+
+rightCupidSound.addEventListener("ended", () => {
+    music.volume = 0.5;
+});
 
     let started = false;
 

@@ -11,7 +11,10 @@ body {
     position: relative; 
     z-index: 1; 
 }
-
+body > *{
+    position: relative;
+    z-index: 2;
+}
 /* ================= */
 /* NAV */
 /* ================= */
@@ -188,7 +191,7 @@ tr {
     top: 80px;
     width: 200px;
 
-    z-index: -1; /* 👈 now actually behind everything */
+    z-index: 0;
     pointer-events: none;
 }
 
@@ -339,4 +342,11 @@ table tr:hover td {
 
 .right-cupid-wrapper{
     right: 20vw;
+}
+html{
+    overflow-y: scroll;
+}
+
+body{
+    overflow-x: hidden;
 }
