@@ -186,24 +186,9 @@ tr {
 /* CUPIDS */
 /* ================= */
 
-.cupid {
-    position: fixed;
-    top: 80px;
-    width: 200px;
 
-    z-index: 0;
-    pointer-events: none;
-}
 
-/* keep them near original position */
-.left-cupid {
-    left: 20vw;
-    transform: scaleX(-1);
-}
 
-.right-cupid {
-    right: 20vw;
-}
 tr {
     transition: background 0.3s ease;
 }
@@ -326,12 +311,26 @@ table tr:hover td {
         transform: scale(1);
     }
 }
+
+html{
+    overflow-y: scroll;
+}
+
+body{
+    overflow-x: hidden;
+}
+/* ================= */
+/* CUPIDS */
+/* ================= */
+
 .left-cupid-wrapper,
 .right-cupid-wrapper{
-    position: fixed;
+    position: absolute;
     top: 80px;
+
     width: 200px;
     height: 200px;
+
     z-index: 1;
     cursor: pointer;
 }
@@ -343,10 +342,12 @@ table tr:hover td {
 .right-cupid-wrapper{
     right: 20vw;
 }
-html{
-    overflow-y: scroll;
+
+.cupid{
+    width: 200px;
+    pointer-events: none;
 }
 
-body{
-    overflow-x: hidden;
+.left-cupid{
+    transform: scaleX(-1);
 }
