@@ -335,3 +335,20 @@ html{
 .right-cupid{
     pointer-events: auto !important;
 }
+.left-cupid-wrapper,
+.right-cupid-wrapper{
+    position: absolute;
+    top: 80px;
+    width: 200px;
+    height: 200px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.left-cupid-wrapper{
+    left: 20vw;
+}
+
+.right-cupid-wrapper{
+    right: 20vw;
+}
