@@ -340,3 +340,7 @@ table{
 .cupid{
     pointer-events: auto;
 }
+.left-cupid,
+.right-cupid{
+    pointer-events: auto !important;
+}
