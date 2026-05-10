@@ -15,11 +15,13 @@
 <body>
 
 <!-- CUPIDS -->
-<div class="left-cupid-wrapper" id="leftCupid">
+<div class="left-cupid-wrapper" id="leftCupid"
+onclick="document.getElementById('leftCupidSound').play()">
     <img src="cupid.gif" class="cupid left-cupid">
 </div>
 
-<div class="right-cupid-wrapper" id="rightCupid">
+<div class="right-cupid-wrapper" id="rightCupid"
+onclick="document.getElementById('rightCupidSound').play()">
     <img src="cupid.gif" class="cupid right-cupid">
 </div>
 
@@ -127,7 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const music = document.getElementById("bgMusic");
     const leftCupidSound = document.getElementById("leftCupidSound");
-    console.log(leftCupid);
 
 const rightCupidSound = document.getElementById("rightCupidSound");
 
@@ -153,29 +154,9 @@ const rightCupid = document.getElementById("rightCupid");
     /* ========================= */
     /* cupid shit */
     /* ========================= */
- leftCupid.addEventListener("mousedown", () => {
-    console.log("LEFT CUPID CLICKED");
-    music.volume = 0.05;
 
-    leftCupidSound.currentTime = 0;
-    leftCupidSound.play();
-});
 
-leftCupidSound.addEventListener("ended", () => {
-    music.volume = 0.5;
-});
 
-rightCupid.addEventListener("mousedown", () => {
-    console.log("RIGHT CUPID CLICKED");
-    music.volume = 0.05;
-
-    rightCupidSound.currentTime = 0;
-    rightCupidSound.play();
-});
-
-rightCupidSound.addEventListener("ended", () => {
-    music.volume = 0.5;
-});
     
 
     const artistInput = document.getElementById("artistName");
