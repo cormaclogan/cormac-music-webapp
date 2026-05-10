@@ -234,7 +234,7 @@ body > *{
 
 .left-cupid-wrapper,
 .right-cupid-wrapper{
-    position: absolute;
+    position: fixed;
     top: 80px;
 
     width: 200px;
