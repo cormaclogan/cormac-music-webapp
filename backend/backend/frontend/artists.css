@@ -322,19 +322,7 @@ table tr:hover td {
 html{
     overflow-y: scroll;
 }
-.left-cupid,
-.right-cupid{
-    cursor: pointer;
-    z-index: 999;
-}
 
-.cupid{
-    pointer-events: auto;
-}
-.left-cupid,
-.right-cupid{
-    pointer-events: auto !important;
-}
 .left-cupid-wrapper,
 .right-cupid-wrapper{
     position: absolute;
@@ -354,4 +342,21 @@ html{
 }
 .cupid{
     pointer-events: none;
+}
+.cupid{
+    z-index: 0;
+    pointer-events: none;
+}
+
+.left-cupid-wrapper,
+.right-cupid-wrapper{
+    position: fixed;
+    top: 80px;
+    width: 200px;
+    height: 200px;
+
+    z-index: 99999;
+
+    cursor: pointer;
+    pointer-events: auto;
 }
