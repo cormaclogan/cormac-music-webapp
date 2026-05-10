@@ -17,14 +17,36 @@
 <body>
 
 <!-- CUPIDS -->
-<img src="cupid.gif" class="cupid left-cupid">
-<img src="cupid.gif" class="cupid right-cupid">
+<!-- CUPIDS -->
+<div class="left-cupid-wrapper"
+onclick="
+document.getElementById('bgMusic').volume=0.05;
+document.getElementById('leftCupidSound').currentTime=0;
+document.getElementById('leftCupidSound').play();
+">
+    <img src="cupid.gif" class="cupid left-cupid">
+</div>
+
+<div class="right-cupid-wrapper"
+onclick="
+document.getElementById('bgMusic').volume=0.05;
+document.getElementById('rightCupidSound').currentTime=0;
+document.getElementById('rightCupidSound').play();
+">
+    <img src="cupid.gif" class="cupid right-cupid">
+</div>
 
 <!-- 🎧 AUDIO -->
 <audio id="bgMusic" loop>
     <source src="music1.mp3" type="audio/mpeg">
 </audio>
+<audio id="leftCupidSound">
+    <source src="dave1.mp3" type="audio/mpeg">
+</audio>
 
+<audio id="rightCupidSound">
+    <source src="leftcupid.mp3" type="audio/mpeg">
+</audio>
 <!-- NAVBAR -->
 <nav>
     <a href="index.html">Home</a>
@@ -97,6 +119,16 @@ let started = false;
 document.addEventListener("click", () => {
     if (!started) {
         const music = document.getElementById("bgMusic");
+        const leftCupidSound = document.getElementById("leftCupidSound");
+const rightCupidSound = document.getElementById("rightCupidSound");
+
+leftCupidSound.addEventListener("ended", () => {
+    music.volume = 0.5;
+});
+
+rightCupidSound.addEventListener("ended", () => {
+    music.volume = 0.5;
+});
         music.volume = 0.5; // 🔊 lower volume here
         music.play();
         started = true;
