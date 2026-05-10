@@ -352,3 +352,6 @@ html{
 .right-cupid-wrapper{
     right: 20vw;
 }
+.cupid{
+    pointer-events: none;
+}
