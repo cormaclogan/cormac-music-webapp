@@ -332,7 +332,7 @@ table tr:hover td {
     top: 80px;
     width: 200px;
     height: 200px;
-    z-index: 9999;
+    z-index: 1;
     cursor: pointer;
 }
 
