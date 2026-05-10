@@ -174,21 +174,9 @@ tr {
     50% { transform: translate(2px,2px); }
     100% { transform: translate(0,0); }
 }
-/* ================= */
-/* CUPIDS */
-/* ================= */
 
-/* ================= */
-/* CUPIDS */
-/* ================= */
 
-.cupid {
-    position: relative;
-    top: 80px;
-    width: 200px;
 
-    z-index: 0;/* 👈 now actually behind everything */
-}
 
 /* keep them near original position */
 
@@ -315,31 +303,9 @@ table tr:hover td {
 html{
     overflow-y: scroll;
 }
-
-.left-cupid-wrapper,
-.right-cupid-wrapper{
-    position: absolute;
-    top: 80px;
-    width: 200px;
-    height: 200px;
-    z-index: 9999;
-    cursor: pointer;
-}
-
-.left-cupid-wrapper{
-    left: 20vw;
-}
-
-.right-cupid-wrapper{
-    right: 20vw;
-}
-.cupid{
-    pointer-events: none;
-}
-.cupid{
-    z-index: 0;
-    pointer-events: none;
-}
+/* ================= */
+/* CUPIDS */
+/* ================= */
 
 .left-cupid-wrapper,
 .right-cupid-wrapper{
@@ -347,12 +313,11 @@ html{
     top: 80px;
     width: 200px;
     height: 200px;
-
     z-index: 99999;
-
     cursor: pointer;
     pointer-events: auto;
 }
+
 .left-cupid-wrapper{
     left: 20vw;
 }
@@ -361,6 +326,16 @@ html{
     right: 20vw;
 }
 
+.cupid{
+    width: 200px;
+    height: auto;
+    pointer-events: none;
+}
+
 .left-cupid{
     transform: scaleX(-1);
 }
+
+
+
+

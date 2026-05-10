@@ -15,13 +15,21 @@
 <body>
 
 <!-- CUPIDS -->
-<div class="left-cupid-wrapper" id="leftCupid"
-onclick="document.getElementById('leftCupidSound').play()">
+<div class="left-cupid-wrapper"
+onclick="
+document.getElementById('bgMusic').volume=0.05;
+document.getElementById('leftCupidSound').currentTime=0;
+document.getElementById('leftCupidSound').play();
+">
     <img src="cupid.gif" class="cupid left-cupid">
 </div>
 
-<div class="right-cupid-wrapper" id="rightCupid"
-onclick="document.getElementById('rightCupidSound').play()">
+<div class="right-cupid-wrapper"
+onclick="
+document.getElementById('bgMusic').volume=0.05;
+document.getElementById('rightCupidSound').currentTime=0;
+document.getElementById('rightCupidSound').play();
+">
     <img src="cupid.gif" class="cupid right-cupid">
 </div>
 
@@ -131,10 +139,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const leftCupidSound = document.getElementById("leftCupidSound");
 
 const rightCupidSound = document.getElementById("rightCupidSound");
+leftCupidSound.addEventListener("ended", () => {
+    music.volume = 0.5;
+});
 
-const leftCupid = document.getElementById("leftCupid");
+rightCupidSound.addEventListener("ended", () => {
+    music.volume = 0.5;
+});
 
-const rightCupid = document.getElementById("rightCupid");
+
+
+
 
     let started = false;
 
