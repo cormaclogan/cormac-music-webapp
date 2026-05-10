@@ -189,15 +189,7 @@ tr {
     pointer-events: none;
 }
 
-/* keep them near original position */
-.left-cupid {
-    left: 20vw;
-    transform: scaleX(-1);
-}
 
-.right-cupid {
-    right: 20vw;
-}
 tr {
     transition: background 0.3s ease;
 }
@@ -249,11 +241,17 @@ body > *{
 }
 
 .right-cupid-wrapper{
-    right: 20vw;
+    left: 70vw;
 }
 
 .cupid{
+    position: absolute;
+    top: 0;
+    left: 0;
+
     width: 200px;
+
+    z-index: -1;
     pointer-events: none;
 }
 
